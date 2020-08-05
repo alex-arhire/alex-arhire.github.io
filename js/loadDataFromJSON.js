@@ -7,7 +7,7 @@
 
     function loadProducts() {
         const request = new XMLHttpRequest();
-        if (window.location.href === 'http://localhost:8080/bikes.html') {
+        if (window.location.href === 'http://localhost:8080/bikes.html' || window.location.href === 'https://alex-arhire.github.io/bikes.html' || window.location.href === 'http://127.0.0.1:5500/bikes.html') {
             request.open("get", "./../data/bikesData.json");
         } else if (window.location.href === 'http://localhost:8080/equipment.html') {
             request.open("get", "./../data/equipmentData.json");

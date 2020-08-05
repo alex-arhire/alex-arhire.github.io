@@ -5,8 +5,10 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = "TOP_SECRET";
 
 const users = [];
-authRoutes.post("/login", (req, res) => {
+authRoutes.post("/signUp", (req, res) => {
   const newUser = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     email: req.body.email,
     password: req.body.password,
   };

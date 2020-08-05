@@ -2,60 +2,57 @@
 * Also handles data displayed on the product details page
 * */
 
-//Dealing with potential global scope issues by using closure
-(() => {
-    const products = document.querySelector('.products-template');
+const products = document.querySelector('.products-template');
 
-    function distributeItems(event) {
-        event.preventDefault();
-        console.log(event.target);
-        const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
+function distributeItems(event) {
+    event.preventDefault();
+    console.log(event.target);
+    const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
 
-        if (event.target.classList.contains('wishlist') || event.target.classList.contains('cart')) {
-            FROM_STORAGE.forEach(obj => {
-                let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
-                if (parsedID === obj.id) {
-                    let items = {
-                        id: obj.id,
-                        image: obj.img,
-                        title: obj["prod-name"],
-                        price: obj.price
-                    };
-                    if (event.target.classList.contains('wishlist')) {
-                        let wishlistStorage = JSON.parse(localStorage.getItem("prodForWishlist")) || [];
-                        wishlistStorage.push(items);
-                        localStorage.setItem("prodForWishlist", JSON.stringify(wishlistStorage));
-                    } else if (event.target.classList.contains('cart')) {
-                        let cartStorage = JSON.parse(localStorage.getItem("prodForCart")) || [];
-                        cartStorage.push(items);
-                        localStorage.setItem("prodForCart", JSON.stringify(cartStorage));
-                    }
+    if (event.target.classList.contains('wishlist') || event.target.classList.contains('cart')) {
+        FROM_STORAGE.forEach(obj => {
+            let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
+            if (parsedID === obj.id) {
+                let items = {
+                    id: obj.id,
+                    image: obj.img,
+                    title: obj["prod-name"],
+                    price: obj.price
+                };
+                if (event.target.classList.contains('wishlist')) {
+                    let wishlistStorage = JSON.parse(localStorage.getItem("prodForWishlist")) || [];
+                    wishlistStorage.push(items);
+                    localStorage.setItem("prodForWishlist", JSON.stringify(wishlistStorage));
+                } else if (event.target.classList.contains('cart')) {
+                    let cartStorage = JSON.parse(localStorage.getItem("prodForCart")) || [];
+                    cartStorage.push(items);
+                    localStorage.setItem("prodForCart", JSON.stringify(cartStorage));
                 }
-            });
-        } else if (event.target.tagName.includes('IMG') || event.target.tagName.includes('A') || event.target.tagName.includes('SPAN')) {
+            }
+        });
+    } else if (event.target.tagName.includes('IMG') || event.target.tagName.includes('A') || event.target.tagName.includes('SPAN')) {
 
-            FROM_STORAGE.forEach(obj => {
-                let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
-                if (parsedID === obj.id) {
-                    let items = {
-                        id: obj.id,
-                        image: obj.img,
-                        title: obj["prod-name"],
-                        price: obj.price,
-                        desc: obj.description
-                    };
-                    let detailsStorage = JSON.parse(localStorage.getItem("prodForDetails")) || [];
-                    detailsStorage = items;
-                    localStorage.setItem("prodForDetails", JSON.stringify(detailsStorage));
-                    window.location.href = 'http://localhost:8080/productDetails.html';
-                }
-            });
-        }
+        FROM_STORAGE.forEach(obj => {
+            let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
+            if (parsedID === obj.id) {
+                let items = {
+                    id: obj.id,
+                    image: obj.img,
+                    title: obj["prod-name"],
+                    price: obj.price,
+                    desc: obj.description
+                };
+                let detailsStorage = JSON.parse(localStorage.getItem("prodForDetails")) || [];
+                detailsStorage = items;
+                localStorage.setItem("prodForDetails", JSON.stringify(detailsStorage));
+                window.location.href = 'http://localhost:8080/productDetails.html';
+            }
+        });
     }
+}
 
-    products.addEventListener('click', distributeItems);
+products.addEventListener('click', distributeItems);
 
-})();
 
 // const wishlistBtn = document.querySelectorAll('.wihslist');
 // const cartBtn = document.querySelectorAll('.cart');

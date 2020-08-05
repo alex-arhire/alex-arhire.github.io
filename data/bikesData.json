@@ -4,7 +4,7 @@
     "img": "./../img/productPage_Bikes/MY20Anthem291_ColorA.jpg",
     "prod-name": "Anthem 29",
     "price": "$1,500.00",
-    "stock": "In Stock",
+    "quantity": "3",
     "category": "enduro",
     "frame-size": [
       "small",
@@ -24,7 +24,7 @@
     "img": "./../img/productPage_Bikes/MY20Reign1_ColorA.jpg",
     "prod-name": "Reign",
     "price": "$2,300.00",
-    "stock": "In Stock",
+    "quantity": "2",
     "category": "downhill",
     "frame-size": [
       "small",
@@ -45,7 +45,7 @@
     "img": "./../img/productPage_Bikes/MY20ReignADPRO290_ColorA.jpg",
     "prod-name": "Reign Advanced Pro 29",
     "price": "$1,700.00",
-    "stock": "In Stock",
+    "quantity": "5",
     "category": "enduro",
     "frame-size": [
       "small",
@@ -65,7 +65,7 @@
     "img": "./../img/productPage_Bikes/MY20ReignSX2_ColorA.jpg",
     "prod-name": "Reign SX",
     "price": "$4,700.00",
-    "stock": "In Stock",
+    "quantity": "7",
     "category": "downhill",
     "frame-size": [
       "small",
@@ -85,7 +85,7 @@
     "img": "./../img/productPage_Bikes/MY20TranceADV1_ColorA.jpg",
     "prod-name": "Trance Advanced",
     "price": "$2,800.00",
-    "stock": "Not in Stock",
+    "quantity": "1",
     "category": "trail",
     "frame-size": [
       "small",
@@ -105,7 +105,7 @@
     "img": "./../img/productPage_Bikes/MY20XTCADV+_ColorA.jpg",
     "prod-name": "XTC Advanced +",
     "price": "$1,400.00",
-    "stock": "In Stock",
+    "quantity": "6",
     "category": "trail",
     "frame-size": [
       "small",
@@ -125,7 +125,7 @@
     "img": "./../img/productPage_Bikes/MY20-Stance-29-1_Color-A.jpg",
     "prod-name": "Stance 29",
     "price": "$2,700.00",
-    "stock": "In Stock",
+    "quantity": "3",
     "category": "trail",
     "frame-size": [
       "small",
@@ -145,7 +145,7 @@
     "img": "./../img/productPage_Bikes/MY20Trance1_ColorA.jpg",
     "prod-name": "Trance",
     "price": "$3,500.00",
-    "stock": "In Stock",
+    "quantity": "3",
     "category": "trail",
     "frame-size": [
       "small",
@@ -165,7 +165,7 @@
     "img": "./../img/productPage_Bikes/XTC-3.jpg",
     "prod-name": "XTC",
     "price": "$1,000.00",
-    "stock": "In Stock",
+    "quantity": "3",
     "category": "trail",
     "frame-size": [
       "small",

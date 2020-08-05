@@ -29,61 +29,59 @@
 //     }
 // }
 
-//Dealing with potential global scope issues by using closure
-(() => {
-    //Removing items from cart
-    var FROM_STORAGE = JSON.parse(localStorage.getItem('prodForCart'));
-    // var removeItemsButtons = document.getElementsByClassName('prod-remove');
-    var prodTable = document.getElementsByClassName('prod-table')[0];
+//Removing items from cart
+var FROM_STORAGE = JSON.parse(localStorage.getItem('prodForCart'));
+// var removeItemsButtons = document.getElementsByClassName('prod-remove');
+var prodTable = document.getElementsByClassName('prod-table')[0];
 
-    function removeCartItem(event) {
-        let buttonClicked = event.target;
-        FROM_STORAGE.forEach(obj => {
-            let parsedID = parseInt(buttonClicked.parentNode.getAttribute('id'), 10);
-            console.log(parsedID);
-            if (parsedID === obj.id) {
-                let index = FROM_STORAGE.indexOf(obj);
-                FROM_STORAGE.splice(index, 1);
-                console.log(FROM_STORAGE);
-                localStorage.setItem('prodForCart', JSON.stringify(FROM_STORAGE));
-            }
-        });
-        buttonClicked.parentElement.remove();
-        updateTotal();
-    }
-
-    function qtyChanged(event) {
-        let input = event.target;
-        if (isNaN(input.value) || input.value <= 0) {
-            input.value = 1;
-        }
-        updateTotal();
-    }
-
-    /*Calculating total*/
-    function updateTotal() {
-        let cartItem = document.getElementsByClassName('cart-item');
-        let total = 0;
-        for (var i = 0; i < cartItem.length; i++) {
-            var cartData = cartItem[i];
-            var price = parseFloat(cartData.getElementsByClassName('prod-price')[0].innerText.replace('$', '').replace(',', ''));
-            var quantity = cartData.getElementsByClassName('quantity')[0].valueAsNumber;
-            total += (price * quantity);
-        }
-        document.getElementsByClassName('total-price')[0].innerText = '$' + total;
-    }
-
-    prodTable.addEventListener('click', event => {
-        if (event.target.classList.contains('prod-remove')) {
-            removeCartItem(event);
+function removeCartItem(event) {
+    let buttonClicked = event.target;
+    FROM_STORAGE.forEach(obj => {
+        let parsedID = parseInt(buttonClicked.parentNode.getAttribute('id'), 10);
+        console.log(parsedID);
+        if (parsedID === obj.id) {
+            let index = FROM_STORAGE.indexOf(obj);
+            FROM_STORAGE.splice(index, 1);
+            console.log(FROM_STORAGE);
+            localStorage.setItem('prodForCart', JSON.stringify(FROM_STORAGE));
         }
     });
-    prodTable.addEventListener('change', event => {
-        if (event.target.classList.contains('quantity')) {
-            qtyChanged(event);
-        }
-    });
-    document.addEventListener('DOMContentLoaded', updateTotal);
+    buttonClicked.parentElement.remove();
+    updateTotal();
+}
 
-})();
+function qtyChanged(event) {
+    let input = event.target;
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1;
+    }
+    updateTotal();
+}
+
+/*Calculating total*/
+function updateTotal() {
+    let cartItem = document.getElementsByClassName('cart-item');
+    let total = 0;
+    for (var i = 0; i < cartItem.length; i++) {
+        var cartData = cartItem[i];
+        var price = parseFloat(cartData.getElementsByClassName('prod-price')[0].innerText.replace('$', '').replace(',', ''));
+        var quantity = cartData.getElementsByClassName('quantity')[0].valueAsNumber;
+        total += (price * quantity);
+    }
+    document.getElementsByClassName('total-price')[0].innerText = '$' + total;
+}
+
+prodTable.addEventListener('click', event => {
+    if (event.target.classList.contains('prod-remove')) {
+        removeCartItem(event);
+    }
+});
+prodTable.addEventListener('change', event => {
+    if (event.target.classList.contains('quantity')) {
+        qtyChanged(event);
+    }
+});
+document.addEventListener('DOMContentLoaded', updateTotal);
+
+
 

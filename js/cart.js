@@ -1,40 +1,21 @@
-/*Handler for retrieving data from LOCAL STORAGE for both wishlist and shopping cart pages*/
-
 const tableItems = document.querySelector('.prod-table > tbody');
 
-function loadProducts() {
+function populateProducts(cart = []) {
 
-    var storage;
-    if (window.location.href === "http://localhost:8080/wishlist.html") {
-        storage = JSON.parse(localStorage.getItem('prodForWishlist'));
-    } else if (window.location.href === "http://localhost:8080/cartCheckout.html") {
-        storage = JSON.parse(localStorage.getItem('prodForCart'));
-    } else if (window.location.href === "http://localhost:8080/productDetails.html") {
-        let storage = JSON.parse(localStorage.getItem(('prodForDetails')));
-        var image = document.getElementById('image1');
-        image.src = storage.image;
-        var title = document.getElementById('prod-title');
-        title.innerText = storage.title;
-        var price = document.getElementById('prod-price');
-        price.innerText = storage.price;
-        var desc = document.getElementById('prod-description');
-        desc.innerText = storage.description;
-    }
-    storage.forEach(item => {
-        console.log(item);
+    cart.forEach(item => {
         var tr = document.createElement('tr');
         tr.className = 'cart-item';
         tr.id = item.id;
 
         var td = document.createElement('td');
         var img = document.createElement('img');
-        img.src = item.image;
+        img.src = item.img;
         td.appendChild(img);
         tr.appendChild(td);
 
         td = document.createElement('td');
         var a = document.createElement('a');
-        a.textContent = item.title;
+        a.textContent = item.name;
         a.href = '#';
         td.appendChild(a);
         tr.appendChild(td);
@@ -49,7 +30,7 @@ function loadProducts() {
         td = document.createElement('td');
         var qt = document.createElement('input');
         qt.type = 'number';
-        qt.value = '1';
+        qt.value = item.quantity;
         qt.className = 'quantity';
         qt.setAttribute('min', '1');
         td.appendChild(qt);
@@ -76,9 +57,12 @@ function loadProducts() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    loadProducts();
-});
+function loadProducts() {
+    return fetch("http://localhost:3000/cart", {
+        headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+    }).then(r => r.json());
+}
 
-
-
+loadProducts().then(populateProducts);

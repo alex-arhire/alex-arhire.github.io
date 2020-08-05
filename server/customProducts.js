@@ -2,8 +2,9 @@ const express = require("express");
 const Chance = require("chance");
 const productsRouter = express.Router();
 const chance = new Chance();
+const prodList = require("./../data/bikesData");
 
-var products = [
+/*var products = [
   {
     id: chance.guid(),
     name: "Trei intr-o barca",
@@ -28,17 +29,22 @@ var products = [
     author: "Alex Arhire",
     quantity: chance.natural({ min: 10, max: 30 }),
   },
-];
+];*/
+var cart = [];
 
-productsRouter.get("/", function (request, response) {
-  response.send(products);
+productsRouter.get("/bikes", function (request, response) {
+  response.send(prodList);
+});
+
+productsRouter.get("/cart", function (request, response) {
+  response.send(cart);
 });
 
 // route parameter
 productsRouter.get("/:productId", function (request, response) {
   const productId = request.params.productId;
 
-  const product = products.find(function (p) {
+  const product = prodList.find(function (p) {
     return p.id === productId;
   });
 
@@ -46,22 +52,23 @@ productsRouter.get("/:productId", function (request, response) {
     return response.send(product);
   }
 
-  return response.send("Not found.");
+  return response.send("The item you are looking for does not exist.");
 });
 
-productsRouter.post("/", function (request, response) {
+productsRouter.post("/bikes", function (request, response) {
   const body = request.body;
 
-  const newProduct = {
-    id: chance.guid(), // global unique id
+  const cartProduct = {
+    id: body.id,
+    img: body.img,
     name: body.name,
-    author: body.author,
-    quantity: body.quantity || 0,
+    price: body.price,
+    quantity: 1,
   };
 
-  products.push(newProduct);
-
-  response.send(newProduct);
+  cart.push(cartProduct);
+  response.send(cartProduct);
+  console.log(cart);
 });
 
 productsRouter.delete("/:productId", function (request, response) {

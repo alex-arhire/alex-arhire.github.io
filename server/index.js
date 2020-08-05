@@ -15,10 +15,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use("/api", auth);
+app.use("/", auth);
 app.use("/api/todos", authorizedMiddleware, todos);
 app.use("/api/watches", authorizedMiddleware, watches);
-app.use("/api/products", products);
+app.use("/", products);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);

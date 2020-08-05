@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans Semibold", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul li, a {
+  list-style-type: none;
+  text-decoration: none;
+  padding: 18px;
+}
+
+/*Mixins*/
+/*Slide-in buttons*/
+/*Product style*/
+.prod-name {
+  color: black;
+}
+
+.prod-price {
+  color: #fc5500;
+}
+
+#to-shop {
+  background-color: black;
+  color: whitesmoke;
+}
+
+/*Common input styles*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  color: whitesmoke;
+  background-color: black;
+}
+.footer .left-side {
+  align-self: center;
+}
+.footer .right-side ul li {
+  display: inline-flex;
+  align-items: center;
+}
+
+/*# sourceMappingURL=footer-Template.css.map */

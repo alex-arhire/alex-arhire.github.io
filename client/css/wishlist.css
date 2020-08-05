@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans Semibold", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul li, a {
+  list-style-type: none;
+  text-decoration: none;
+  padding: 18px;
+}
+
+/*Mixins*/
+/*Slide-in buttons*/
+/*Product style*/
+.prod-name {
+  color: black;
+}
+
+.prod-price {
+  color: #fc5500;
+}
+
+#to-shop {
+  background-color: black;
+  color: whitesmoke;
+}
+
+/*Common input styles*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.wishlist-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(3, auto);
+  text-align: center;
+}
+.wishlist-container button {
+  background-color: black;
+  color: whitesmoke;
+  border: none;
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.wishlist-container button:hover {
+  background-color: #fc5500;
+}
+.wishlist-container h1 {
+  margin-top: 2%;
+  color: #fc5500;
+}
+.wishlist-container table {
+  border-collapse: collapse;
+  margin: 5%;
+}
+.wishlist-container table img {
+  width: 250px;
+  height: 150px;
+}
+.wishlist-container table tr {
+  border-bottom: 1px solid lightgray;
+}
+.wishlist-container table td {
+  text-align: center;
+}
+.wishlist-container input[type=number] {
+  width: 30%;
+  height: 30%;
+}
+.wishlist-container .prod-remove::after {
+  content: url("https://api.iconify.design/el:remove.svg?color=%23fc5500&height=16");
+  cursor: pointer;
+}
+.wishlist-container #to-shop {
+  margin: 0 0 5% 5%;
+}
+
+/*# sourceMappingURL=wishlist.css.map */

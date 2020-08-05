@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans Semibold", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul li, a {
+  list-style-type: none;
+  text-decoration: none;
+  padding: 18px;
+}
+
+/*Mixins*/
+/*Slide-in buttons*/
+/*Product style*/
+.prod-name {
+  color: black;
+}
+
+.prod-price {
+  color: #fc5500;
+}
+
+#to-shop {
+  background-color: black;
+  color: whitesmoke;
+}
+
+/*Common input styles*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.site-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  width: 100%;
+  height: auto;
+  grid-template-areas: "top-menu top-menu top-menu top-menu top-menu top-menu" "top-menu top-menu top-menu top-menu top-menu top-menu" "nav-bar nav-bar nav-bar nav-bar nav-bar nav-bar";
+}
+
+.top-menu {
+  grid-area: top-menu;
+  background: url("./../img/black and white diamond pattern_204025b2.jpg");
+  /*background-color: rgba(52, 52, 52, 0.76);*/
+  background-size: 100% 100%;
+}
+.top-menu .site-logo img {
+  float: left;
+  width: 200px;
+  height: 150px;
+}
+.top-menu .items {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-content: start;
+  margin-right: 10px;
+  background: black;
+}
+
+.top-menu.items.links a, .nav-bar.menu-items-left a {
+  color: whitesmoke;
+  transition: all 0.3s ease 0s;
+}
+
+.top-menu.items.links a:hover, .nav-bar.menu-items-left a:hover {
+  color: #fc5500;
+}
+
+#user-account, #bikes-menu, #equip-menu, #comp-menu {
+  padding-top: 10px;
+  display: none;
+  position: absolute;
+  opacity: 0;
+}
+
+.top-menu li:hover #user-account, .nav-bar li:hover #bikes-menu, .nav-bar li:hover #equip-menu, .nav-bar li:hover #comp-menu {
+  display: block;
+  opacity: 1;
+}
+
+#user-account li, #bikes-menu li, #equip-menu li, #comp-menu li {
+  padding: 5px 0;
+  background-color: black;
+}
+
+.nav-bar {
+  grid-area: nav-bar;
+  background-color: black;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  /*position: sticky;*/
+  top: 0;
+  /*z-index: 2;*/
+}
+.nav-bar input[type=search] {
+  background: whitesmoke url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+  border: solid 3px whitesmoke;
+  padding: 10px 10px 10px 29px;
+  margin-right: 200px;
+  width: 25px;
+  border-radius: 30px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.nav-bar .menu-items-right #wishlist-icon {
+  position: relative;
+  background: url(./../img/WishlistLogo.png) 2px 8px no-repeat;
+  background-size: 45px;
+  padding-left: 50px;
+  right: 150px;
+  bottom: 2px;
+}
+.nav-bar .menu-items-right #cart-icon {
+  position: relative;
+  background: url(./../img/CartLogo.PNG) 2px 5px no-repeat;
+  background-size: 52px;
+  padding-left: 50px;
+  right: 120px;
+  bottom: 2px;
+}
+.nav-bar input[type=search]:focus {
+  width: 250px;
+  background-color: whitesmoke;
+}
+.nav-bar .menu-items-right li {
+  padding: 0;
+}
+.nav-bar .menu-items-right li a img {
+  object-fit: contain;
+  width: 15%;
+  height: 15%;
+}
+
+/*# sourceMappingURL=header-nav-footer-Template.css.map */

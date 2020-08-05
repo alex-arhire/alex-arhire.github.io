@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="./css/productDetails.css"/>
+    <title>Product Details page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.prod-details-header-nav').load('header-nav-footer-Template.html');
+        });
+    </script>
+    <script>
+        $(function () {
+            $('.prod-details-footer').load('footer-Template.html');
+        });
+    </script>
+</head>
+<body>
+<div class="prod-details-header-nav"></div>
+<div class="prod-details-container">
+    <div class="image-slider">
+        <a href="#image1"><img class="slide-image" src="./img/Slider-Gallery/MY20Anthem293_ColorA4.jpg"/></a>
+        <a href="#image2"><img class="slide-image" src="./img/Slider-Gallery/MY20Anthem291_ColorA_angle.jpg"/></a>
+        <a href="#image3"><img class="slide-image" src="./img/Slider-Gallery/MY20Anthem291_ColorA2.jpg"/></a>
+        <a href="#image4"><img class="slide-image" src="./img/Slider-Gallery/MY20Anthem292_ColorA3.jpg"/></a>
+    </div>
+    <div class="main-gallery">
+        <img id="image1" class="gallery-image" src="./img/Slider-Gallery/MY20Anthem293_ColorA4.jpg"/>
+        <img id="image2" class="gallery-image" src="./img/Slider-Gallery/MY20Anthem291_ColorA_angle.jpg"/>
+        <img id="image3" class="gallery-image" src="./img/Slider-Gallery/MY20Anthem291_ColorA2.jpg"/>
+        <img id="image4" class="gallery-image" src="./img/Slider-Gallery/MY20Anthem292_ColorA3.jpg"/>
+    </div>
+    <div class="text-details">
+        <h3 id="prod-title">Anthem 29</h3>
+        <div class="rating">Rating
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+        </div>
+        <p id="prod-description">Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension
+            technology is perfect for XC racing, marathons or epic days on the trail.
+        </p>
+        <ul>
+            <li>Frame: ALUXX SL-Grade Aluminum, 90mm</li>
+            <li>Fork: RockShox SID Select+, 100mm, TwistLoc remote</li>
+            <li>Wheels: Giant XCR-1 29 Composite WheelSystem</li>
+            <li>Shifters: Shimano Deore XT</li>
+            <li>Crankset: Shimano Deore XT, 32t</li>
+            <li>Colours: Gloss Metallic Blue / Orange</li>
+        </ul>
+        <span>Price: <span class="prod-price">$4000.00</span></span>
+        <form class="cart-addition">
+            <label for="prod-color">Color</label>
+            <select id="prod-color">
+                <option value data-isdefault="true">Select a color</option>
+                <option>Red</option>
+                <option>Blue</option>
+                <option>Black</option>
+                <option>Yellow</option>
+                <option>White</option>
+            </select>
+            <label for="quantity">Quantity:</label>
+            <input id="quantity" type="number" name="quantity" value="1"/>
+            <div class="buttons">
+                <button id="add-cart">Add to Cart</button>
+                <button id="wishlist-button">Add to Wishlist</button>
+            </div>
+        </form>
+        <div class="icons">
+            <div class="shipping">
+                <img src="./img/Site_Icons/truck.png"/>
+                <p>3 day shipping</p>
+            </div>
+            <div class="return">
+                <img src="./img/Site_Icons/952397-200_480x480.png"/>
+                <p>30 days return</p>
+            </div>
+            <div class="warranty">
+                <img src="./img/Site_Icons/warranty2.png"/>
+                <p>1 year warranty</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="prod-details-footer"></div>
+
+<script src="./js/getItemsHandler.js"></script>
+</body>
+</html>

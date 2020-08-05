@@ -1,0 +1,51 @@
+@import "commonStyle";
+
+.wishlist-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(3, auto);
+  text-align: center;
+
+  button {
+    @include buttonStyle($buttonBGBlack, $textColorWS);
+  }
+
+  h1 {
+    margin-top: 2%;
+    color: $primaryOrange;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 5%;
+
+    img {
+      width: 250px;
+      height: 150px;
+    }
+
+    tr {
+      border-bottom: 1px solid lightgray;
+    }
+
+    td {
+      text-align: center;
+    }
+  }
+
+  input[type="number"] {
+    width: 30%;
+    height: 30%;
+  }
+
+  .prod-remove::after {
+    content: url('https://api.iconify.design/el:remove.svg?color=%23fc5500&height=16');
+    cursor: pointer;
+  }
+
+  #to-shop {
+    margin: 0 0 5% 5%;
+  }
+
+}
+

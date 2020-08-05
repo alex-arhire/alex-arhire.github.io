@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans Semibold", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul li, a {
+  list-style-type: none;
+  text-decoration: none;
+  padding: 18px;
+}
+
+/*Mixins*/
+/*Slide-in buttons*/
+/*Product style*/
+.prod-name {
+  color: black;
+}
+
+.prod-price {
+  color: #fc5500;
+}
+
+#to-shop {
+  background-color: black;
+  color: whitesmoke;
+}
+
+/*Common input styles*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+button {
+  background-color: black;
+  color: whitesmoke;
+  border: none;
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button:hover {
+  background-color: #fc5500;
+}
+
+.prod-details-container {
+  display: grid;
+  grid-template-columns: 20% 40% 40%;
+  overflow: hidden;
+  height: 60vh;
+}
+.prod-details-container .image-slider img {
+  display: block;
+  width: 50%;
+  height: 20%;
+  transition: all 0.5s ease;
+}
+.prod-details-container .image-slider img:hover {
+  transform: scale(1.3);
+}
+.prod-details-container * {
+  padding: 5px;
+}
+
+.main-gallery {
+  overflow: hidden;
+  padding: 0 15% 0 0;
+  scroll-behavior: smooth;
+}
+.main-gallery img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.image-slider {
+  padding: 5% 0 0 15%;
+}
+
+.gallery-image {
+  object-fit: contain;
+}
+
+.text-details {
+  display: grid;
+  align-items: center;
+}
+.text-details ul li::before {
+  content: url("https://api.iconify.design/simple-line-icons:wrench.svg?color=%23fc5500&height=16&inline=true");
+  margin-right: 5px;
+}
+.text-details .checked {
+  color: #fc5500;
+}
+.text-details .buttons {
+  display: block;
+}
+.text-details input[type=number] {
+  width: 10%;
+  height: 15%;
+}
+
+.prod-details-container .text-details .icons {
+  display: flex;
+}
+.prod-details-container .text-details .icons div {
+  margin: 0 10px;
+}
+.prod-details-container .text-details .icons img {
+  width: 50px;
+  height: 50px;
+  margin: 0 20px;
+}
+
+/*# sourceMappingURL=productDetails.css.map */

@@ -1,0 +1,316 @@
+@import "commonStyle";
+
+.home-page-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  width: 100%;
+  height: auto;
+  grid-template-areas: "mid-sec-card1 mid-sec-card1 mid-sec-card2 mid-sec-card2 mid-sec-card3 mid-sec-card3"
+  "mid-sec-bike-logo1 mid-sec-bike-logo2 mid-sec-bike-logo3 mid-sec-bike-logo4 mid-sec-bike-logo5 mid-sec-bike-logo6"
+  "mid-sec-bike-slot1 mid-sec-bike-slot1 mid-sec-bike-slot2 mid-sec-bike-slot2 mid-sec-bike-slot3 mid-sec-bike-slot3"
+  "mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner"
+  "mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner"
+  "mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner"
+  "mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner"
+  "mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner"
+  "filter-menu filter-menu filter-menu filter-menu filter-menu filter-menu"
+  "mid-sec-equip1 mid-sec-equip1 mid-sec-equip2 mid-sec-equip2 mid-sec-equip3 mid-sec-equip3"
+  "mid-sec-parts1 mid-sec-parts1 mid-sec-parts2 mid-sec-parts2 mid-sec-parts3 mid-sec-parts3"
+  "mag1-img mag1-img mag1-img mag1-text mag1-text mag1-text"
+  "mag2-text mag2-text mag2-text mag2-img mag2-img mag2-img"
+}
+
+button {
+  @include buttonStyle($buttonBGBlack, $textColorWS);
+}
+
+.card {
+  background-color: white;
+  transition: all 0.5s ease-in-out 0s;
+
+  .card-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+.mid-sec.card1 {
+  grid-area: mid-sec-card1;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.mid-sec.card2 {
+  grid-area: mid-sec-card2;
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.mid-sec.card3 {
+  grid-area: mid-sec-card3;
+  margin-top: 30px;
+  margin-right: 30px;
+}
+
+img {
+  object-fit: contain;
+  height: 85%;
+  width: 85%;
+}
+
+.mid-sec-bike-logo {
+  margin-top: 30px;
+  background-color: #e7e7e7;
+}
+
+.mid-sec-bike-logo img {
+  height: 90%;
+  width: 90%;
+}
+
+.mid-sec-bike-logo.one {
+  grid-area: mid-sec-bike-logo1;
+}
+
+.mid-sec-bike-logo.two {
+  grid-area: mid-sec-bike-logo2;
+}
+
+.mid-sec-bike-logo.three {
+  grid-area: mid-sec-bike-logo3;
+}
+
+.mid-sec-bike-logo.four {
+  grid-area: mid-sec-bike-logo4;
+}
+
+.mid-sec-bike-logo.five {
+  grid-area: mid-sec-bike-logo5;
+}
+
+.mid-sec-bike-logo.six {
+  grid-area: mid-sec-bike-logo6;
+}
+
+.mid-sec-bike-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include buttonSlide(black);
+}
+
+.mid-sec-bike-slot a, span {
+  padding: 5px;
+}
+
+.prod-price {
+  color: #fc5500;
+}
+
+.mid-sec-bike-slot.one {
+  grid-area: mid-sec-bike-slot1;
+}
+
+.mid-sec-bike-slot.two {
+  grid-area: mid-sec-bike-slot2;
+}
+
+.mid-sec-bike-slot.three {
+  grid-area: mid-sec-bike-slot3;
+}
+
+.mid-sec-animated-banner {
+  grid-area: mid-sec-animated-banner;
+  position: relative;
+  margin-top: 20px;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    animation: slideshow 12s linear 0s infinite;
+    object-fit: cover;
+    display: inline;
+    height: 100%;
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  img:nth-child(2) {
+    z-index: 3;
+    animation-delay: 4s;
+  }
+
+  img:nth-child(3) {
+    z-index: 2;
+    animation-delay: 8s;
+  }
+
+  @keyframes slideshow {
+    25% {
+      opacity: 1;
+    }
+    33.33% {
+      opacity: 0;
+    }
+    91.66% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.filter-menu {
+  grid-area: filter-menu;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin-bottom: 30px;
+  border-bottom: solid #fc5500;
+
+  h1 {
+    padding-right: 20%;
+  }
+
+  ul li {
+    display: inline-flex;
+
+    a {
+      color: #fc5500;
+
+      &:hover {
+        transform: scale(1.3);
+        transition: all 0.5s ease-in-out 0s;
+      }
+    }
+  }
+}
+
+.mid-sec-equip, .mid-sec-parts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include buttonSlide(black);
+}
+
+.mid-sec-bike-slot a, .mid-sec-equip a, .mid-sec-parts a {
+  color: black;
+}
+
+.mid-sec-equip img, .mid-sec-parts img {
+  object-fit: contain;
+  width: 60%;
+  height: 60%;
+}
+
+.mid-sec-equip.one {
+  grid-area: mid-sec-equip1;
+}
+
+.mid-sec-equip.two {
+  grid-area: mid-sec-equip2;
+}
+
+.mid-sec-equip.three {
+  grid-area: mid-sec-equip3;
+}
+
+.mid-sec-parts.one {
+  grid-area: mid-sec-parts1;
+}
+
+.mid-sec-parts.two {
+  grid-area: mid-sec-parts2;
+}
+
+.mid-sec-parts.three {
+  grid-area: mid-sec-parts3;
+}
+
+.mag {
+  color: whitesmoke;
+  background-color: #252525;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+.text {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10%;
+}
+
+.mag.one.image {
+  grid-area: mag1-img;
+}
+
+.mag.one.text {
+  grid-area: mag1-text;
+}
+
+.mag.two.image {
+  grid-area: mag2-img;
+}
+
+.mag.two.text {
+  grid-area: mag2-text;
+}
+
+@media screen and (max-width: 760px) {
+  .site-wrapper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(100px, 50%);
+    width: 100%;
+    grid-gap: 10px;
+    text-align: center;
+    grid-template-areas: "mid-sec-card1 mid-sec-card1 mid-sec-card1 mid-sec-card1 mid-sec-card1 mid-sec-card1"
+    "mid-sec-card2 mid-sec-card2 mid-sec-card2 mid-sec-card2 mid-sec-card2 mid-sec-card2"
+    "mid-sec-card3 mid-sec-card3 mid-sec-card3 mid-sec-card3 mid-sec-card3 mid-sec-card3"
+    "mid-sec-bike-logo1 mid-sec-bike-logo1 mid-sec-bike-logo1 mid-sec-bike-logo1 mid-sec-bike-logo1 mid-sec-bike-logo1"
+    "mid-sec-bike-logo2 mid-sec-bike-logo2 mid-sec-bike-logo2 mid-sec-bike-logo2 mid-sec-bike-logo2 mid-sec-bike-logo2"
+    "mid-sec-bike-logo3 mid-sec-bike-logo3 mid-sec-bike-logo3 mid-sec-bike-logo3 mid-sec-bike-logo3 mid-sec-bike-logo3"
+    "mid-sec-bike-logo4 mid-sec-bike-logo4 mid-sec-bike-logo4 mid-sec-bike-logo4 mid-sec-bike-logo4 mid-sec-bike-logo4"
+    "mid-sec-bike-logo5 mid-sec-bike-logo5 mid-sec-bike-logo5 mid-sec-bike-logo5 mid-sec-bike-logo5 mid-sec-bike-logo5"
+    "mid-sec-bike-logo6 mid-sec-bike-logo6 mid-sec-bike-logo6 mid-sec-bike-logo6 mid-sec-bike-logo6 mid-sec-bike-logo6"
+    "mid-sec-bike-slot1 mid-sec-bike-slot1 mid-sec-bike-slot1 mid-sec-bike-slot1 mid-sec-bike-slot1 mid-sec-bike-slot1"
+    "mid-sec-bike-slot2 mid-sec-bike-slot2 mid-sec-bike-slot2 mid-sec-bike-slot2 mid-sec-bike-slot2 mid-sec-bike-slot2"
+    "mid-sec-bike-slot3 mid-sec-bike-slot3 mid-sec-bike-slot3 mid-sec-bike-slot3 mid-sec-bike-slot3 mid-sec-bike-slot3"
+    "mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner mid-sec-animated-banner"
+    "filter-menu filter-menu filter-menu filter-menu filter-menu filter-menu"
+    "mid-sec-equip1 mid-sec-equip1 mid-sec-equip1 mid-sec-equip1 mid-sec-equip1 mid-sec-equip1"
+    "mid-sec-equip2 mid-sec-equip2 mid-sec-equip2 mid-sec-equip2 mid-sec-equip2 mid-sec-equip2"
+    "mid-sec-equip3 mid-sec-equip3 mid-sec-equip3 mid-sec-equip3 mid-sec-equip3 mid-sec-equip3"
+    "mid-sec-parts1 mid-sec-parts1 mid-sec-parts1 mid-sec-parts1 mid-sec-parts1 mid-sec-parts1"
+    "mid-sec-parts2 mid-sec-parts2 mid-sec-parts2 mid-sec-parts2 mid-sec-parts2 mid-sec-parts2"
+    "mid-sec-parts3 mid-sec-parts3 mid-sec-parts3 mid-sec-parts3 mid-sec-parts3 mid-sec-parts3"
+    "mag1-img mag1-img mag1-img mag1-img mag1-img mag1-img"
+    "mag1-text mag1-text mag1-text mag1-text mag1-text mag1-text"
+    "mag2-img mag2-img mag2-img mag2-img mag2-img mag2-img"
+    "mag2-text mag2-text mag2-text mag2-text mag2-text mag2-text"
+  }
+}

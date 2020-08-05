@@ -1,0 +1,182 @@
+[
+  {
+    "img": "./../img/Equip&Comp/526855_4376102.jpg",
+    "prod-name": "Bell Super DH MIPS",
+    "price": "$250.00",
+    "stock": "In Stock",
+    "category": "helmet",
+    "color": [
+      "black",
+      "blue",
+      "red",
+      "green",
+      "yellow",
+      "grey"
+    ],
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ]
+  },
+  {
+    "img": "./../img/Equip&Comp/461414_4013189.jpg",
+    "prod-name": "Fox Head Rampage Comp Reno",
+    "price": "$140.00",
+    "stock": "In Stock",
+    "category": "helmet",
+    "color": [
+      "black",
+      "blue",
+      "red",
+      "green",
+      "yellow",
+      "grey"
+    ],
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ]
+  },
+  {
+    "img": "./../img/Equip&Comp/424716_3781348.jpg",
+    "prod-name": "O'Neal Fury RL Hybrid",
+    "price": "$250.00",
+    "stock": "In Stock",
+    "category": "helmet",
+    "color": [
+      "black",
+      "blue",
+      "red",
+      "green",
+      "yellow",
+      "grey"
+    ],
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ]
+  },
+  {
+    "img": "./../img/Equip&Comp/566549_4647519.jpg",
+    "prod-name": "100% R-Core SS19",
+    "price": "$30.00",
+    "stock": "In Stock",
+    "category": "jersey",
+    "color": [
+      "black",
+      "blue",
+      "red",
+      "green",
+      "yellow",
+      "grey"
+    ],
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ]
+  },
+  {
+    "img": "./../img/Equip&Comp/424161_3781310.jpg",
+    "prod-name": "O'Neal Matrix",
+    "price": "$45.00",
+    "stock": "In Stock",
+    "category": "jersey",
+    "color": [
+      "black",
+      "blue",
+      "red",
+      "green",
+      "yellow",
+      "grey"
+    ],
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ]
+  },
+  {
+    "img": "./../img/Equip&Comp/545237_4521368.jpg",
+    "prod-name": "Fox Head Ranger",
+    "price": "$59.00",
+    "stock": "In Stock",
+    "category": "jersey",
+    "color": [
+      "black",
+      "blue",
+      "red",
+      "green",
+      "yellow",
+      "grey"
+    ],
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ]
+  },
+  {
+    "img": "./../img/Equip&Comp/501158_4249444.jpg",
+    "prod-name": "Fox Racing Defend",
+    "price": "$25.00",
+    "stock": "In Stock",
+    "category": "gloves",
+    "color": [
+      "black",
+      "blue",
+      "red",
+      "green",
+      "yellow",
+      "grey"
+    ],
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ]
+  },
+  {
+    "img": "./../img/Equip&Comp/548017_4507878.jpg",
+    "prod-name": "100% Celium",
+    "price": "$29.00",
+    "stock": "In Stock",
+    "category": "gloves",
+    "color": [
+      "black",
+      "blue",
+      "red",
+      "green",
+      "yellow",
+      "grey"
+    ],
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ]
+  },
+  {
+    "img": "./../img/Equip&Comp/522388_4349923.jpg",
+    "prod-name": "O'Neal Revolution",
+    "price": "$34.99",
+    "stock": "In Stock",
+    "category": "gloves",
+    "color": [
+      "black",
+      "blue",
+      "red",
+      "green",
+      "yellow",
+      "grey"
+    ],
+    "size": [
+      "small",
+      "medium",
+      "large"
+    ]
+  }
+]

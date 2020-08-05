@@ -1,0 +1,82 @@
+@import "commonStyle";
+
+button {
+    @include buttonStyle($buttonBGBlack, $textColorWS);
+}
+
+.prod-details-container {
+    display: grid;
+    grid-template-columns: 20% 40% 40%;
+    overflow: hidden;
+    height: 60vh;
+
+    .image-slider img {
+        display: block;
+        width: 50%;
+        height: 20%;
+        transition: all 0.5s ease;
+
+        &:hover {
+            transform: scale(1.3);
+        }
+    }
+    * {
+        padding: 5px;
+    }
+}
+
+.main-gallery {
+    overflow: hidden;
+    padding: 0 15% 0 0;
+    scroll-behavior: smooth;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.image-slider {
+    padding: 5% 0 0 15%;
+}
+
+.gallery-image {
+    object-fit: contain;
+}
+
+.text-details {
+    display: grid;
+    align-items: center;
+
+    ul li::before {
+        content: url('https://api.iconify.design/simple-line-icons:wrench.svg?color=%23fc5500&height=16&inline=true');
+        margin-right: 5px;
+    }
+
+    .checked {
+        color: #fc5500;
+    }
+
+    .buttons {
+        display: block;
+    }
+
+    input[type="number"] {
+        @include quantityInput(10%, 15%);
+    }
+}
+
+.prod-details-container .text-details .icons {
+    display: flex;
+
+    div {
+        margin: 0 10px;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+        margin: 0 20px;
+    }
+}

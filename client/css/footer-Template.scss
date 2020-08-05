@@ -1,0 +1,20 @@
+@import "commonStyle.scss";
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  color: whitesmoke;
+  background-color: black;
+
+  .left-side {
+    align-self: center;
+  }
+
+  .right-side ul li {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+
+

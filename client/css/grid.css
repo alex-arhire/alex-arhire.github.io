@@ -1,0 +1,66 @@
+/*
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template:
+                [top-header-left] "top-header top-header" 1fr [top-header-right]
+                [top-nav-left] "top-nav top-nav" 1fr [top-nav-right]
+                [sec1-left] "sec1 sec1" 1fr [sec1-right]
+                [sec2-left] "sec1 sec1" 1fr [sec2-right]
+                [sec3-left] "sec1 sec1" 1fr [sec3-right]
+                [sec4-left] "sec1 sec1" 1fr [sec4-right]
+                [sec5-left] "sec1 sec1" 1fr [sec5-right]
+                [sec6-left] "sec1 sec1" 1fr [sec6-right]
+                [bot-footer-left] "sec1 sec1" 1fr [bot-footer-right]
+                    / 1fr 1fr;
+
+}
+
+.top-header {
+    grid-area: top-header;
+    background-color: darkorange;
+}
+
+.top-nav {
+    grid-area: top-nav;
+    background-color: gray;
+}
+*/
+
+/*#page {
+    display: grid;
+    width: 100%;
+    height: 500px;
+    grid-template: [header-left] "head head head" 1fr [header-right]
+                    [nav-left]   "nav  nav nav" 1fr  [nav-right]
+                    [main-left]   "main  main main" 1fr  [main-right]
+                    [footer-left] "foot  foot foot" 1fr [footer-right]
+                                 / 1fr 2fr 1fr;
+}*/
+
+
+header {
+    background-color: lime;
+    grid-area: head;
+}
+
+nav {
+    background-color: lightblue;
+    grid-area: nav;
+}
+
+main {
+    background-color: yellow;
+    grid-area: main;
+}
+
+footer {
+    background-color: red;
+    grid-area: foot;
+}

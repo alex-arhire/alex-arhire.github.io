@@ -232,7 +232,7 @@ button:focus {
   visibility: hidden;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 760px) {
   .main-container {
     grid-template-rows: repeat(4, auto);
   }

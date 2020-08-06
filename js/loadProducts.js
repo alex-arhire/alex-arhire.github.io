@@ -61,6 +61,13 @@ productsContainer.addEventListener('click', event => {
             headers: {
                 Authorization: `Bearer ${sessionStorage.getItem("token")}`,
             },
+            body: JSON.stringify({
+                id: body.id,
+                img: body.img,
+                name: body.name,
+                price: body.price,
+                quantity: 1,
+            })
         }).then((r => r.json()));
     }
 });

@@ -1,35 +1,9 @@
 const express = require("express");
-const Chance = require("chance");
 const productsRouter = express.Router();
-const chance = new Chance();
 const prodList = require("./../data/bikesData");
+const x = require('./test');
+console.log(x);
 
-/*var products = [
-  {
-    id: chance.guid(),
-    name: "Trei intr-o barca",
-    author: "Jerome K. Jerome",
-    quantity: chance.natural({ min: 10, max: 30 }),
-  },
-  {
-    id: chance.guid(),
-    name: "1Q84",
-    author: "Haruki Murakami",
-    quantity: chance.natural({ min: 10, max: 30 }),
-  },
-  {
-    id: chance.guid(),
-    name: "Singur pe lume",
-    author: "Hector Malot",
-    quantity: chance.natural({ min: 10, max: 30 }),
-  },
-  {
-    id: chance.guid(),
-    name: "Dar daca vrem sa folosim un fisier...",
-    author: "Alex Arhire",
-    quantity: chance.natural({ min: 10, max: 30 }),
-  },
-];*/
 var cart = [];
 
 productsRouter.get("/bikes", function (request, response) {
@@ -40,7 +14,6 @@ productsRouter.get("/cart", function (request, response) {
   response.send(cart);
 });
 
-// route parameter
 productsRouter.get("/:productId", function (request, response) {
   const productId = request.params.productId;
 
@@ -71,10 +44,9 @@ productsRouter.post("/bikes", function (request, response) {
   console.log(cart);
 });
 
+/*
 productsRouter.delete("/:productId", function (request, response) {
   const productId = request.params.productId;
-
-  // immutable - NU iti modifica array-ul initial
   products = products.filter(p => p.id !== productId);
 
   response.send(productId);
@@ -94,5 +66,6 @@ productsRouter.patch("/:productId", (req, res) => {
 
   res.send(product);
 });
+*/
 
 module.exports = productsRouter;

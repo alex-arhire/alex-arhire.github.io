@@ -71,4 +71,12 @@ button:hover {
   padding: 0 10%;
 }
 
+@media screen and (max-width: 760px) {
+  .mag-container {
+    display: grid;
+    grid-template-rows: repeat(8, auto);
+    grid-template-columns: auto;
+  }
+}
+
 /*# sourceMappingURL=mag.css.map */

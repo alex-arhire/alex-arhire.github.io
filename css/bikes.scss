@@ -46,6 +46,7 @@ h2 {
             color: black;
         }
     }
+
 }
 
 .products {
@@ -73,4 +74,13 @@ h2 {
         color: $textColorWS;
     }
 
+}
+
+@media screen and (max-width: 760px) {
+
+    .filters {
+    grid-row: 2;
+    padding: 5px 2% 5px 0;
+    justify-self: end;
+    }
 }

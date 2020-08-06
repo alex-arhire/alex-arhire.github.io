@@ -95,6 +95,13 @@ button:focus {
   animation-fill-mode: forwards;
   top: 35%;
 }
+@media screen and (max-width: 760px) {
+  .products-template {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: minmax(100px, 50%);
+  }
+}
 
 /*
 .tile {

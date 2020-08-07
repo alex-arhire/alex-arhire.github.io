@@ -2,7 +2,7 @@
 * Also handles data displayed on the product details page
 * */
 
-const products = document.querySelector('.products-template');
+const productsTemplate = document.querySelector('.products-template');
 
 function distributeItems(event) {
     event.preventDefault();
@@ -51,7 +51,7 @@ function distributeItems(event) {
     }
 }
 
-products.addEventListener('click', distributeItems);
+productsTemplate.addEventListener('click', distributeItems);
 
 
 // const wishlistBtn = document.querySelectorAll('.wihslist');

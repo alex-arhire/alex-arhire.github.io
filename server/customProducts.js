@@ -1,8 +1,6 @@
 const express = require("express");
 const productsRouter = express.Router();
 const prodList = require("./../data/bikesData");
-const x = require('./test');
-console.log(x);
 
 var cart = [];
 
@@ -28,7 +26,7 @@ productsRouter.get("/:productId", function (request, response) {
   return response.send("The item you are looking for does not exist.");
 });
 
-productsRouter.post("/bikes", function (request, response) {
+productsRouter.post("/cart", function (request, response) {
   const body = request.body;
 
   const cartProduct = {

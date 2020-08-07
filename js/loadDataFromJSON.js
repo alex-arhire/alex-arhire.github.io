@@ -16,15 +16,15 @@ function loadProducts() {
         try {
             const json = JSON.parse(request.responseText);
             localStorage.setItem('productsForStorage', JSON.stringify(json));
-            populateProducts(json);
+            // populateProducts(json);
         } catch (e) {
             console.log("Could not load products");
         }
     };
     request.send();
 }
-
-function populateProducts(json) {
+loadProducts();
+/*function populateProducts(json) {
 //Populate with data
 
     for (var i = 0; i < json.length; i++) {
@@ -63,7 +63,7 @@ function populateProducts(json) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", loadProducts);
+document.addEventListener("DOMContentLoaded", loadProducts);*/
 
 
 

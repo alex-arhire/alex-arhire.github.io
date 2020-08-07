@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use("/", auth);
 app.use("/api/todos", authorizedMiddleware, todos);
 app.use("/api/watches", authorizedMiddleware, watches);
-app.use("/", products);
+app.use("/", authorizedMiddleware, products);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);

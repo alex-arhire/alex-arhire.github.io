@@ -1,9 +1,9 @@
 /*Function for handling product filtering*/
 var filters = document.querySelector('.filters');
-const products = document.querySelector('.products-template');
+const productsToFilter = document.querySelector('.products-template');
 
 function filter(event) {
-    products.innerHTML = '';
+    productsToFilter.innerHTML = '';
     const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
     const FILTERED_PROD = FROM_STORAGE.filter(item => {
         switch (true) {
@@ -52,7 +52,7 @@ function filter(event) {
             buttonWishlist.textContent = 'Add to Wishlist';
             div.appendChild(buttonWishlist);
         }
-        products.appendChild(div);
+        productsToFilter.appendChild(div);
     }
 }
 

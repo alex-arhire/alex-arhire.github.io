@@ -30,7 +30,7 @@
 // }
 
 //Removing items from cart
-var FROM_STORAGE = JSON.parse(localStorage.getItem('prodForCart'));
+const FROM_STORAGE = JSON.parse(localStorage.getItem('prodForCart'));
 // var removeItemsButtons = document.getElementsByClassName('prod-remove');
 var prodTable = document.getElementsByClassName('prod-table')[0];
 

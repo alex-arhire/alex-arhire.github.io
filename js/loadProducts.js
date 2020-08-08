@@ -2,8 +2,6 @@
 
 const productsContainer = document.querySelector('.products-template');
 
-// const addToCartBtns = document.getElementsByClassName('cart');
-
 /*
 class RenderProducts {
     constructor(productList = []) {
@@ -111,7 +109,34 @@ productsContainer.addEventListener('click', event => {
         FROM_STORAGE.forEach(obj => {
             let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
             if (parsedID === obj.id) {
-                const cartHandler = new MethodHandler("http://localhost:3000/cart",'POST', JSON.stringify({
+                let cartStorage = JSON.parse(localStorage.getItem("prodForCart")) || [];
+                let product = cartStorage.find(p => p.id === parsedID);
+                console.log(cartStorage);
+                console.log(product);
+                if (product) {
+                    const cartHandler = new MethodHandler(`http://localhost:3000/cart/${parsedID}`, 'PATCH');
+                    cartHandler.sendRequest();
+                } else {
+                    const cartHandler = new MethodHandler("http://localhost:3000/cart", 'POST', JSON.stringify({
+                            id: obj.id,
+                            img: obj.img,
+                            name: obj["prod-name"],
+                            price: obj.price,
+                            quantity: 1,
+                        }
+                    ));
+                    cartHandler.sendRequest();
+                    cartStorage.push(JSON.parse(cartHandler.body));
+                    console.log(JSON.parse(cartHandler.body));
+                    localStorage.setItem("prodForCart", JSON.stringify(cartStorage));
+                }
+            }
+        })
+    } else if (event.target.classList.contains('wishlist')) {
+        FROM_STORAGE.forEach(obj => {
+            let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
+            if (parsedID === obj.id) {
+                const wishlistHandler = new MethodHandler("http://localhost:3000/wishlist", 'POST', JSON.stringify({
                         id: obj.id,
                         img: obj.img,
                         name: obj["prod-name"],
@@ -119,7 +144,10 @@ productsContainer.addEventListener('click', event => {
                         quantity: 1,
                     }
                 ));
-                cartHandler.sendRequest().then(populateProducts);
+                wishlistHandler.sendRequest();
+                let wishlistStorage = JSON.parse(localStorage.getItem("prodForWishlist")) || [];
+                wishlistStorage.push(wishlistHandler.body);
+                localStorage.setItem("prodForWishlist", JSON.stringify(wishlistStorage));
             }
         })
     }

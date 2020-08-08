@@ -82,5 +82,9 @@ button:focus {
 .wishlist-container #to-shop {
   margin: 0 0 5% 5%;
 }
+.wishlist-container .total {
+  font-size: 20px;
+  color: #fc5500;
+}
 
 /*# sourceMappingURL=wishlist.css.map */

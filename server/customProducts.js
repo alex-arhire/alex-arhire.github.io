@@ -3,67 +3,99 @@ const productsRouter = express.Router();
 const prodList = require("./../data/bikesData");
 
 var cart = [];
+var wishlist = [];
 
+//GET handlers
 productsRouter.get("/bikes", function (request, response) {
-  response.send(prodList);
+    response.send(prodList);
 });
 
 productsRouter.get("/cart", function (request, response) {
-  response.send(cart);
+    response.send(cart);
+});
+
+productsRouter.get("/wishlist", function (request, response) {
+    response.send(wishlist);
 });
 
 productsRouter.get("/:productId", function (request, response) {
-  const productId = request.params.productId;
+    const productId = request.params.productId;
 
-  const product = prodList.find(function (p) {
-    return p.id === productId;
-  });
+    const product = prodList.find(function (p) {
+        return p.id === productId;
+    });
 
-  if (product) {
-    return response.send(product);
-  }
+    if (product) {
+        return response.send(product);
+    }
 
-  return response.send("The item you are looking for does not exist.");
+    return response.send("The item you are looking for does not exist.");
 });
 
+//POST handlers
 productsRouter.post("/cart", function (request, response) {
-  const body = request.body;
+    const body = request.body;
 
-  const cartProduct = {
-    id: body.id,
-    img: body.img,
-    name: body.name,
-    price: body.price,
-    quantity: 1,
-  };
+    const cartProduct = {
+        id: body.id,
+        img: body.img,
+        name: body.name,
+        price: body.price,
+        quantity: 1,
+    };
 
-  cart.push(cartProduct);
-  response.send(cartProduct);
+    cart.push(cartProduct);
+    response.send(cartProduct);
 });
 
+productsRouter.post("/wishlist", function (request, response) {
+    const body = request.body;
+
+    const wishlistProduct = {
+        id: body.id,
+        img: body.img,
+        name: body.name,
+        price: body.price,
+        quantity: 1,
+    };
+
+    wishlist.push(wishlistProduct);
+    response.send(wishlistProduct);
+});
+
+//DELETE handlers
 productsRouter.delete("/cart/:productId", function (request, response) {
-  const productId = parseInt(request.params.productId, 10);
-  cart = cart.filter(p => p.id !== productId);
-  response.send(cart);
-  console.log(cart);
-  console.log(typeof productId);
+    const productId = parseInt(request.params.productId, 10);
+    cart = cart.filter(p => p.id !== productId);
+    response.send(cart);
 });
 
-/*
-productsRouter.patch("/:productId", (req, res) => {
-  const productId = req.params.productId;
-  const body = req.body;
-
-  let product = products.find(p => p.id === productId);
-
-  if (!product) {
-    return res.send("Not found.");
-  }
-
-  Object.assign(product, body);
-
-  res.send(product);
+productsRouter.delete("/wishlist/:productId", function (request, response) {
+    const productId = parseInt(request.params.productId, 10);
+    wishlist = wishlist.filter(p => p.id !== productId);
+    response.send(wishlist);
 });
-*/
+
+productsRouter.patch("/cart/:productId", (req, res) => {
+    const productId = req.params.productId;
+    const body = req.body;
+    console.log(cart);
+    console.log(req.body);
+    let product = cart.find(p => p.id === productId);
+
+    if (!product) {
+        return res.send("Not found.");
+    } else {
+        product = {
+            id: body.id,
+            img: body.img,
+            name: body.name,
+            price: body.price,
+            quantity: body.quantity
+        };
+        Object.assign(product, body);
+    }
+    res.send(product);
+});
 
 module.exports = productsRouter;

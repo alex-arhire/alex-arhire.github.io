@@ -1,3 +1,5 @@
+// import {MethodHandler} from './methodHandler.js';
+
 const productsContainer = document.querySelector('.products-template');
 
 // const addToCartBtns = document.getElementsByClassName('cart');
@@ -45,6 +47,7 @@ class RenderProducts {
 */
 
 function populateProducts(products = []) {
+    console.log(products);
     products.forEach(object => {
         var div = document.createElement('div');
         div.className = 'tile';
@@ -79,11 +82,10 @@ function populateProducts(products = []) {
 }
 
 class MethodHandler {
-    constructor(route, id, method, body) {
+    constructor(route, method, body) {
         this.route = route;
         this.method = method;
         this.body = body;
-        this.id = id;
     }
 
     sendRequest() {
@@ -98,17 +100,18 @@ class MethodHandler {
     }
 }
 
-const bikeHandler = new MethodHandler('http://localhost:3000/bikes', 'GET');
+const bikeHandler = new MethodHandler('http://localhost:3000/bikes');
 bikeHandler.sendRequest().then(populateProducts);
 
 const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
 
 productsContainer.addEventListener('click', event => {
+    event.preventDefault();
     if (event.target.classList.contains('cart')) {
         FROM_STORAGE.forEach(obj => {
             let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
             if (parsedID === obj.id) {
-                const cartHandler = new MethodHandler("http://localhost:3000/cart", `${obj.id}`,'POST', JSON.stringify({
+                const cartHandler = new MethodHandler("http://localhost:3000/cart",'POST', JSON.stringify({
                         id: obj.id,
                         img: obj.img,
                         name: obj["prod-name"],
@@ -121,22 +124,4 @@ productsContainer.addEventListener('click', event => {
         })
     }
 });
-
-/*
-function loadProducts(page) {
-    return fetch(`http://localhost:3000/${page}`, {
-        headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-    }).then(r => r.json());
-}
-
-loadProducts('bikes').then(populateProducts);*/
-
-/*const buttons = Object.entries(addToCartBtns);
-console.log(buttons);
-buttons.forEach(button => {
-    console.log(button);
-    button.addEventListener('click', addToCart);
-});*/
 

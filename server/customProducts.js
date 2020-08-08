@@ -39,17 +39,17 @@ productsRouter.post("/cart", function (request, response) {
 
   cart.push(cartProduct);
   response.send(cartProduct);
+});
+
+productsRouter.delete("/cart/:productId", function (request, response) {
+  const productId = parseInt(request.params.productId, 10);
+  cart = cart.filter(p => p.id !== productId);
+  response.send(cart);
   console.log(cart);
+  console.log(typeof productId);
 });
 
 /*
-productsRouter.delete("/:productId", function (request, response) {
-  const productId = request.params.productId;
-  products = products.filter(p => p.id !== productId);
-
-  response.send(productId);
-});
-
 productsRouter.patch("/:productId", (req, res) => {
   const productId = req.params.productId;
   const body = req.body;

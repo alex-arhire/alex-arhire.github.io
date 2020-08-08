@@ -30,10 +30,25 @@
 // }
 
 //Removing items from cart
-const FROM_STORAGE = JSON.parse(localStorage.getItem('prodForCart'));
+// const FROM_STORAGE = JSON.parse(localStorage.getItem('prodForCart'));
 // var removeItemsButtons = document.getElementsByClassName('prod-remove');
 var prodTable = document.getElementsByClassName('prod-table')[0];
 
+/*
+class FindID {
+    constructor(id) {
+        this.id = id;
+    }
+    find() {
+        return FROM_STORAGE.find(id => {
+            id.id;
+        })
+    }
+}
+*/
+
+
+/*
 function removeCartItem(event) {
     let buttonClicked = event.target;
     FROM_STORAGE.forEach(obj => {
@@ -49,6 +64,7 @@ function removeCartItem(event) {
     buttonClicked.parentElement.remove();
     updateTotal();
 }
+*/
 
 function qtyChanged(event) {
     let input = event.target;
@@ -73,14 +89,16 @@ function updateTotal() {
 
 prodTable.addEventListener('click', event => {
     if (event.target.classList.contains('prod-remove')) {
-        removeCartItem(event);
+        updateTotal();
     }
 });
+
 prodTable.addEventListener('change', event => {
     if (event.target.classList.contains('quantity')) {
         qtyChanged(event);
     }
 });
+
 document.addEventListener('DOMContentLoaded', updateTotal);
 
 

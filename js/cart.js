@@ -1,7 +1,9 @@
+// import {MethodHandler} from './methodHandler';
+
 const tableItems = document.querySelector('.prod-table > tbody');
 
 function populateProducts(cart = []) {
-
+    tableItems.innerHTML = '';
     cart.forEach(item => {
         var tr = document.createElement('tr');
         tr.className = 'cart-item';
@@ -57,12 +59,69 @@ function populateProducts(cart = []) {
     });
 }
 
-function loadProducts() {
-    return fetch("http://localhost:3000/cart", {
-        headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-    }).then(r => r.json());
+class MethodHandler {
+    constructor(route, method, body) {
+        this.route = route;
+        this.method = method;
+        this.body = body;
+    }
+
+    sendRequest() {
+        return fetch(this.route, {
+            method: this.method,
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            },
+            body: this.body
+        }).then(r => r.json());
+    }
 }
 
-loadProducts().then(populateProducts);
+const cart = new MethodHandler("http://localhost:3000/cart");
+cart.sendRequest().then(populateProducts);
+
+tableItems.addEventListener('click', event => {
+    var itemId = event.target.parentNode.getAttribute("id");
+    if (event.target.classList.contains('prod-remove')) {
+        const cartHandler = new MethodHandler(`http://localhost:3000/cart/${itemId}`, 'DELETE');
+        cartHandler.sendRequest().then(populateProducts);
+    }
+});
+
+/*Calculating total*/
+function updateTotal() {
+    let cartItem = document.getElementsByClassName('cart-item');
+    let total = 0;
+    for (var i = 0; i < cartItem.length; i++) {
+        var cartData = cartItem[i];
+        var price = parseFloat(cartData.getElementsByClassName('prod-price')[0].innerText.replace('$', '').replace(',', ''));
+        var quantity = cartData.getElementsByClassName('quantity')[0].valueAsNumber;
+        total += (price * quantity);
+    }
+    document.getElementsByClassName('total-price')[0].innerText = '$' + total;
+}
+
+function qtyChanged(event) {
+    let input = event.target;
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1;
+    }
+    updateTotal();
+}
+
+tableItems.addEventListener('change', event => {
+    if (event.target.classList.contains('quantity')) {
+        qtyChanged(event);
+    }
+});
+
+tableItems.addEventListener('click', event => {
+    if (event.target.classList.contains('prod-remove')) {
+        updateTotal();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', updateTotal);
+updateTotal();
+

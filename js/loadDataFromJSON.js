@@ -1,5 +1,5 @@
-/*The purpose of this function is to get the data from the JSON files and display it on the respective page
-(Bikes, Equipment and Components pages)*/
+/**The purpose of this function is to get the data from the JSON files and display it on the respective page
+(Bikes, Equipment and Components pages)**/
 
 const products = document.querySelector('.products-template');
 
@@ -16,7 +16,6 @@ function loadProducts() {
         try {
             const json = JSON.parse(request.responseText);
             localStorage.setItem('productsForStorage', JSON.stringify(json));
-            // populateProducts(json);
         } catch (e) {
             console.log("Could not load products");
         }
@@ -24,46 +23,8 @@ function loadProducts() {
     request.send();
 }
 loadProducts();
-/*function populateProducts(json) {
-//Populate with data
 
-    for (var i = 0; i < json.length; i++) {
-        var object = json[i];
-
-        for (var j in object) {
-            var div = document.createElement('div');
-            div.className = 'tile';
-            div.id = object.id;
-
-            var img = document.createElement('img');
-            img.src = object.img;
-            div.appendChild(img);
-
-            var a = document.createElement('a');
-            a.textContent = object["prod-name"];
-            a.href = '#';
-            div.appendChild(a);
-
-            var price = document.createElement('span');
-            price.textContent = object.price;
-            price.className = 'prod-price';
-            div.appendChild(price);
-
-            var buttonCart = document.createElement('button');
-            buttonCart.className = 'cart';
-            buttonCart.textContent = 'Add to Cart';
-            div.appendChild(buttonCart);
-
-            var buttonWishlist = document.createElement('button');
-            buttonWishlist.className = 'wishlist';
-            buttonWishlist.textContent = 'Add to Wishlist';
-            div.appendChild(buttonWishlist);
-        }
-        products.appendChild(div);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", loadProducts);*/
+// document.addEventListener("DOMContentLoaded", loadProducts);
 
 
 

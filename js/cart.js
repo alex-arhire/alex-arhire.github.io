@@ -1,8 +1,7 @@
-// import {MethodHandler} from './methodHandler';
+import MethodHandler from './methodHandler.js';
 
+/**Rendering the DOM elements**/
 const tableItems = document.querySelector('.prod-table > tbody');
-
-
 function populateProducts(items = []) {
     tableItems.innerHTML = '';
     items.forEach(item => {
@@ -60,30 +59,12 @@ function populateProducts(items = []) {
     });
 }
 
-class MethodHandler {
-    constructor(route, method, body) {
-        this.route = route;
-        this.method = method;
-        this.body = body;
-    }
-
-    sendRequest() {
-        return fetch(this.route, {
-            method: this.method,
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-            },
-            body: this.body
-        }).then(r => r.json());
-    }
-}
-
+/**Searching for existing products in LOCAL STORAGE**/
 const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
 
+/**Adding items from the Wishlist page to the cart**/
 tableItems.addEventListener('click', event => {
     event.preventDefault();
-    console.log(event.target);
     if (event.target.classList.contains('cart')) {
         FROM_STORAGE.forEach(obj => {
             let parsedID = parseInt(event.target.parentNode.parentNode.getAttribute('id'), 10);
@@ -103,6 +84,27 @@ tableItems.addEventListener('click', event => {
     }
 });
 
+/**Deleting items from storage**/
+function removeItemFromStorage(event, storage, key) {
+    let FROM_STORAGE = storage;
+    FROM_STORAGE.forEach(obj => {
+/*        let parsedID;
+        if (window.location.href === 'http://localhost:8080/productDetails.html') {
+            console.log(event.target);
+            parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
+        } else {
+            parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
+        }*/
+        let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
+        if (parsedID === obj.id) {
+            let index = FROM_STORAGE.indexOf(obj);
+            FROM_STORAGE.splice(index, 1);
+            localStorage.setItem(key, JSON.stringify(FROM_STORAGE));
+        }
+    });
+}
+
+/**Deleting items from the CART**/
 if (window.location.href === 'http://localhost:8080/cartCheckout.html') {
     const cart = new MethodHandler("http://localhost:3000/cart");
     cart.sendRequest().then(populateProducts);
@@ -113,21 +115,26 @@ if (window.location.href === 'http://localhost:8080/cartCheckout.html') {
             const cartHandler = new MethodHandler(`http://localhost:3000/cart/${itemId}`, 'DELETE');
             cartHandler.sendRequest().then(populateProducts).then(updateTotal);
         }
+        removeItemFromStorage(event, JSON.parse(localStorage.getItem('prodForCart')), 'prodForCart');
     });
+
+/**Deleting items from the WISHLIST**/
 } else if (window.location.href === 'http://localhost:8080/wishlist.html') {
     const wishlist = new MethodHandler("http://localhost:3000/wishlist");
     wishlist.sendRequest().then(populateProducts);
 
     tableItems.addEventListener('click', event => {
+        console.log(event.target);
         var itemId = event.target.parentNode.getAttribute("id");
         if (event.target.classList.contains('prod-remove')) {
             const wishlistHandler = new MethodHandler(`http://localhost:3000/wishlist/${itemId}`, 'DELETE');
             wishlistHandler.sendRequest().then(populateProducts).then(updateTotal);
         }
+        removeItemFromStorage(event, JSON.parse(localStorage.getItem('prodForWishlist')), 'prodForWishlist');
     });
 }
 
-/*Calculating total*/
+/**Calculating total**/
 function updateTotal() {
     setTimeout(function () {
         let cartItem = document.getElementsByClassName('cart-item');

@@ -1,6 +1,8 @@
 const express = require("express");
 const productsRouter = express.Router();
 const prodList = require("./../data/bikesData");
+const equipList = require('./../data/equipmentData');
+const compList = require('./../data/componentsData');
 
 var cart = [];
 var wishlist = [];
@@ -8,6 +10,14 @@ var wishlist = [];
 //GET handlers
 productsRouter.get("/bikes", function (request, response) {
     response.send(prodList);
+});
+
+productsRouter.get("/equipment", function (request, response) {
+    response.send(equipList);
+});
+
+productsRouter.get("/components", function (request, response) {
+    response.send(compList);
 });
 
 productsRouter.get("/cart", function (request, response) {
@@ -22,6 +32,34 @@ productsRouter.get("/:productId", function (request, response) {
     const productId = request.params.productId;
 
     const product = prodList.find(function (p) {
+        return p.id === productId;
+    });
+
+    if (product) {
+        return response.send(product);
+    }
+
+    return response.send("The item you are looking for does not exist.");
+});
+
+productsRouter.get("/:productId", function (request, response) {
+    const productId = request.params.productId;
+
+    const product = equipList.find(function (p) {
+        return p.id === productId;
+    });
+
+    if (product) {
+        return response.send(product);
+    }
+
+    return response.send("The item you are looking for does not exist.");
+});
+
+productsRouter.get("/:productId", function (request, response) {
+    const productId = request.params.productId;
+
+    const product = compList.find(function (p) {
         return p.id === productId;
     });
 

@@ -10,7 +10,7 @@ function loadProducts() {
     } else if (window.location.href === "http://localhost:8080/cartCheckout.html") {
         storage = JSON.parse(localStorage.getItem('prodForCart'));
     } else if (window.location.href === "http://localhost:8080/productDetails.html") {
-        let storage = JSON.parse(localStorage.getItem(('prodForDetails')));
+        storage = JSON.parse(localStorage.getItem(('prodForDetails')));
         var image = document.getElementById('image1');
         image.src = storage.image;
         var title = document.getElementById('prod-title');

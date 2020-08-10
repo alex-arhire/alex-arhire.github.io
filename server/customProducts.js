@@ -7,7 +7,21 @@ const compList = require('./../data/componentsData');
 var cart = [];
 var wishlist = [];
 
-//GET handlers
+/*class ProdHandler {
+    constructor(route, products, method) {
+        this.route = route;
+        this.products = products;
+        this.method = method;
+    }
+
+    request() {
+        productsRouter.this.method(this.route, function (request, response) {
+            response.sendRequest(this.products);
+        })
+    }
+}*/
+
+/**GET handlers**/
 productsRouter.get("/bikes", function (request, response) {
     response.send(prodList);
 });
@@ -70,7 +84,7 @@ productsRouter.get("/:productId", function (request, response) {
     return response.send("The item you are looking for does not exist.");
 });
 
-//POST handlers
+/**POST handlers**/
 productsRouter.post("/cart", function (request, response) {
     const body = request.body;
 
@@ -101,7 +115,7 @@ productsRouter.post("/wishlist", function (request, response) {
     response.send(wishlistProduct);
 });
 
-//DELETE handlers
+/**DELETE handlers**/
 productsRouter.delete("/cart/:productId", function (request, response) {
     const productId = parseInt(request.params.productId, 10);
     cart = cart.filter(p => p.id !== productId);
@@ -114,24 +128,22 @@ productsRouter.delete("/wishlist/:productId", function (request, response) {
     response.send(wishlist);
 });
 
+/**PATCH handlers**/
 productsRouter.patch("/cart/:productId", (req, res) => {
     const productId = req.params.productId;
     const body = req.body;
-    console.log(cart);
-    console.log(req.body);
-    let product = cart.find(p => p.id === productId);
+
+    let qty = parseInt(body.quantity, 10) + 1;
+    console.log(qty);
+    let product = cart.find(p => p.id = productId);
 
     if (!product) {
         return res.send("Not found.");
     } else {
-        product = {
-            id: body.id,
-            img: body.img,
-            name: body.name,
-            price: body.price,
-            quantity: body.quantity
-        };
-        Object.assign(product, body);
+        let productIndex = cart.findIndex((obj => obj == product));
+        cart[productIndex].quantity = 2;
+        console.log(cart);
+        // Object.assign(product, body);
     }
     res.send(product);
 });

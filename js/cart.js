@@ -1,7 +1,9 @@
+/**Imports**/
 import MethodHandler from './methodHandler.js';
 
 /**Rendering the DOM elements**/
 const tableItems = document.querySelector('.prod-table > tbody');
+
 function populateProducts(items = []) {
     tableItems.innerHTML = '';
     items.forEach(item => {
@@ -59,6 +61,15 @@ function populateProducts(items = []) {
     });
 }
 
+/**Cleanup function**/
+function clean() {
+    const cartStorage = JSON.parse(localStorage.getItem("prodForCart"));
+    if (cartStorage.length === 0) {
+        console.log(cartStorage);
+        tableItems.innerHTML = '';
+    }
+}
+
 /**Searching for existing products in LOCAL STORAGE**/
 const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
 
@@ -88,13 +99,13 @@ tableItems.addEventListener('click', event => {
 function removeItemFromStorage(event, storage, key) {
     let FROM_STORAGE = storage;
     FROM_STORAGE.forEach(obj => {
-/*        let parsedID;
-        if (window.location.href === 'http://localhost:8080/productDetails.html') {
-            console.log(event.target);
-            parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
-        } else {
-            parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
-        }*/
+        /*        let parsedID;
+                if (window.location.href === 'http://localhost:8080/productDetails.html') {
+                    console.log(event.target);
+                    parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
+                } else {
+                    parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
+                }*/
         let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
         if (parsedID === obj.id) {
             let index = FROM_STORAGE.indexOf(obj);
@@ -104,11 +115,11 @@ function removeItemFromStorage(event, storage, key) {
     });
 }
 
-/**Deleting items from the CART**/
 if (window.location.href === 'http://localhost:8080/cartCheckout.html') {
     const cart = new MethodHandler("http://localhost:3000/cart");
     cart.sendRequest().then(populateProducts);
 
+    /**Deleting items from the CART**/
     tableItems.addEventListener('click', event => {
         var itemId = event.target.parentNode.getAttribute("id");
         if (event.target.classList.contains('prod-remove')) {
@@ -118,7 +129,7 @@ if (window.location.href === 'http://localhost:8080/cartCheckout.html') {
         removeItemFromStorage(event, JSON.parse(localStorage.getItem('prodForCart')), 'prodForCart');
     });
 
-/**Deleting items from the WISHLIST**/
+    /**Deleting items from the WISHLIST**/
 } else if (window.location.href === 'http://localhost:8080/wishlist.html') {
     const wishlist = new MethodHandler("http://localhost:3000/wishlist");
     wishlist.sendRequest().then(populateProducts);
@@ -136,7 +147,6 @@ if (window.location.href === 'http://localhost:8080/cartCheckout.html') {
 
 /**Calculating total**/
 function updateTotal() {
-    setTimeout(function () {
         let cartItem = document.getElementsByClassName('cart-item');
         let total = 0;
         for (var i = 0; i < cartItem.length; i++) {
@@ -147,7 +157,6 @@ function updateTotal() {
         }
         document.getElementsByClassName('total-price')[0].innerText = '$' + total;
 
-    }, 0)
 }
 
 function qtyChanged(event) {
@@ -164,5 +173,9 @@ tableItems.addEventListener('change', event => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', updateTotal);
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+    updateTotal();
+    }, 200);
+});
 

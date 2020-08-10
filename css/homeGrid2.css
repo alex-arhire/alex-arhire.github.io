@@ -9,6 +9,7 @@ ul li, a {
   list-style-type: none;
   text-decoration: none;
   padding: 18px;
+  user-select: none;
 }
 
 /*Mixins*/
@@ -145,6 +146,7 @@ img {
 }
 .mid-sec-bike-slot button:hover {
   background-color: #fc5500;
+  cursor: pointer;
 }
 .mid-sec-bike-slot .cart,
 .mid-sec-bike-slot .wishlist {
@@ -280,6 +282,7 @@ img {
 }
 .mid-sec-equip button:hover, .mid-sec-parts button:hover {
   background-color: #fc5500;
+  cursor: pointer;
 }
 .mid-sec-equip .cart,
 .mid-sec-equip .wishlist, .mid-sec-parts .cart,

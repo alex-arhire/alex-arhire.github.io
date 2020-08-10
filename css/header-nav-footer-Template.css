@@ -9,6 +9,7 @@ ul li, a {
   list-style-type: none;
   text-decoration: none;
   padding: 18px;
+  user-select: none;
 }
 
 /*Mixins*/
@@ -100,32 +101,62 @@ button:focus {
   /*position: sticky;*/
   top: 0;
   /*z-index: 2;*/
+  /*
+  .menu-items-right #wishlist-icon {
+      position: relative;
+      background: url(./../img/WishlistLogo.png) 2px 8px no-repeat;
+      background-size: 45px;
+      padding-left: 50px;
+      right: 150px;
+      bottom: 2px;
+  }
+
+  .menu-items-right #cart-icon {
+      position: relative;
+      background: url(./../img/CartLogo.PNG) 2px 5px no-repeat;
+      background-size: 52px;
+      padding-left: 50px;
+      right: 120px;
+      bottom: 2px;
+  }
+  */
+  /*    #wishlist-icon::before {
+          content:var(--wishlistContent, "0");
+          color: $textColorWS;
+          font-size:15px;
+      }
+
+      #cart-icon::before {
+          content:var(--cartContent, "0");
+          color: $textColorWS;
+          font-size:15px;
+      }*/
+  /*   #wishlist-counter::before, #cart-counter::before {
+         content: '0';
+         color: $textColorWS;
+         background-color: $primaryOrange;
+     }*/
 }
 .nav-bar input[type=search] {
   background: whitesmoke url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
   border: solid 3px whitesmoke;
   padding: 10px 10px 10px 29px;
-  margin-right: 200px;
+  margin-right: 20px;
   width: 25px;
   border-radius: 30px;
   transition: all 0.5s;
   cursor: pointer;
 }
-.nav-bar .menu-items-right #wishlist-icon {
-  position: relative;
-  background: url(./../img/WishlistLogo.png) 2px 8px no-repeat;
-  background-size: 45px;
-  padding-left: 50px;
-  right: 150px;
-  bottom: 2px;
+.nav-bar #cart-icon, .nav-bar #wishlist-icon {
+  color: whitesmoke;
 }
-.nav-bar .menu-items-right #cart-icon {
-  position: relative;
-  background: url(./../img/CartLogo.PNG) 2px 5px no-repeat;
-  background-size: 52px;
-  padding-left: 50px;
-  right: 120px;
-  bottom: 2px;
+.nav-bar #cart-icon img {
+  width: 50px !important;
+  height: 50px !important;
+}
+.nav-bar #wishlist-icon img {
+  height: 45px !important;
+  width: 45px !important;
 }
 .nav-bar input[type=search]:focus {
   width: 250px;
@@ -133,6 +164,7 @@ button:focus {
 }
 .nav-bar .menu-items-right li {
   padding: 0;
+  margin-right: 30px;
 }
 .nav-bar .menu-items-right li a img {
   object-fit: contain;

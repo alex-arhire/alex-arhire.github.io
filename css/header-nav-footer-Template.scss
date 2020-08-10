@@ -75,13 +75,14 @@
         background: $textColorWS url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
         border: solid 3px $textColorWS;
         padding: 10px 10px 10px 29px;
-        margin-right: 200px;
+        margin-right: 20px;
         width: 25px;
         border-radius: 30px;
         transition: all .5s;
         cursor: pointer;
     }
 
+    /*
     .menu-items-right #wishlist-icon {
         position: relative;
         background: url(./../img/WishlistLogo.png) 2px 8px no-repeat;
@@ -99,6 +100,39 @@
         right: 120px;
         bottom: 2px;
     }
+    */
+
+    #cart-icon, #wishlist-icon {
+        color: $textColorWS;
+    }
+
+    #cart-icon img {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    #wishlist-icon img {
+        height: 45px !important;
+        width: 45px !important;
+    }
+
+/*    #wishlist-icon::before {
+        content:var(--wishlistContent, "0");
+        color: $textColorWS;
+        font-size:15px;
+    }
+
+    #cart-icon::before {
+        content:var(--cartContent, "0");
+        color: $textColorWS;
+        font-size:15px;
+    }*/
+
+ /*   #wishlist-counter::before, #cart-counter::before {
+        content: '0';
+        color: $textColorWS;
+        background-color: $primaryOrange;
+    }*/
 
     input[type=search]:focus {
         width: 250px;
@@ -107,6 +141,7 @@
 
     .menu-items-right li {
         padding: 0;
+        margin-right: 30px;
     }
 
     .menu-items-right li a img {

@@ -9,6 +9,7 @@ ul li, a {
   list-style-type: none;
   text-decoration: none;
   padding: 18px;
+  user-select: none;
 }
 
 /*Mixins*/
@@ -54,6 +55,7 @@ button:focus {
 }
 .products-template .tile button:hover {
   background-color: #fc5500;
+  cursor: pointer;
 }
 .products-template .tile .cart,
 .products-template .tile .wishlist {
@@ -170,6 +172,7 @@ ul li, a {
   list-style-type: none;
   text-decoration: none;
   padding: 18px;
+  user-select: none;
 }
 
 /*Mixins*/
@@ -207,6 +210,7 @@ ul li, a {
   list-style-type: none;
   text-decoration: none;
   padding: 18px;
+  user-select: none;
 }
 
 * {
@@ -220,6 +224,7 @@ ul li, a {
   list-style-type: none;
   text-decoration: none;
   padding: 18px;
+  user-select: none;
 }
 
 /*Mixins*/
@@ -265,6 +270,7 @@ button:focus {
 }
 .products-template .tile button:hover {
   background-color: #fc5500;
+  cursor: pointer;
 }
 .products-template .tile .cart,
 .products-template .tile .wishlist {

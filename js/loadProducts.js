@@ -1,10 +1,18 @@
+/**Imports**/
 import MethodHandler from './methodHandler.js';
 
-/**Rendering the DOM elements**/
+/**Checking page location**/
 let container;
+
 function checkLocation() {
     switch (window.location.href) {
-        case "http://localhost:8080/bikes.html" || "http://localhost:8080/equipment.html" || "http://localhost:8080/components.html":
+        case "http://localhost:8080/bikes.html":
+            container = document.querySelector('.products-template');
+            break;
+        case "http://localhost:8080/equipment.html":
+            container = document.querySelector('.products-template');
+            break;
+        case "http://localhost:8080/components.html":
             container = document.querySelector('.products-template');
             break;
         case "http://localhost:8080/homeGrid2.html":
@@ -19,13 +27,14 @@ function checkLocation() {
         default:
             break;
     }
+    console.log(container);
     return container;
 }
 
 checkLocation();
 
+/**Rendering the DOM elements**/
 function populateProducts(products = []) {
-    console.log(products);
     products.forEach(object => {
         var div = document.createElement('div');
         div.className = 'tile';
@@ -76,72 +85,6 @@ switch (window.location.href) {
         break;
 }
 
-/*productsContainer.addEventListener('click', event => {
-    event.preventDefault();
-    if (event.target.classList.contains('cart')) {
-        FROM_STORAGE.forEach(obj => {
-            let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
-            if (parsedID === obj.id) {
-                let cartStorage = JSON.parse(localStorage.getItem("prodForCart")) || [];
-                let product = cartStorage.find(p => p.id === parsedID);
-                console.log(cartStorage);
-                console.log(product);
-                if (product) {
-                    const cartHandler = new MethodHandler(`http://localhost:3000/cart/${parsedID}`, 'PATCH');
-                    cartHandler.sendRequest();
-                } else {
-                    const cartHandler = new MethodHandler("http://localhost:3000/cart", 'POST', JSON.stringify({
-                            id: obj.id,
-                            img: obj.img,
-                            name: obj["prod-name"],
-                            price: obj.price,
-                            quantity: 1,
-                        }
-                    ));
-                    cartHandler.sendRequest();
-                    cartStorage.push(JSON.parse(cartHandler.body));
-                    console.log(JSON.parse(cartHandler.body));
-                    localStorage.setItem("prodForCart", JSON.stringify(cartStorage));
-                }
-            }
-        })
-    } else if (event.target.classList.contains('wishlist')) {
-        FROM_STORAGE.forEach(obj => {
-            let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
-            if (parsedID === obj.id) {
-                const wishlistHandler = new MethodHandler("http://localhost:3000/wishlist", 'POST', JSON.stringify({
-                        id: obj.id,
-                        img: obj.img,
-                        name: obj["prod-name"],
-                        price: obj.price,
-                        quantity: 1,
-                    }
-                ));
-                wishlistHandler.sendRequest();
-                let wishlistStorage = JSON.parse(localStorage.getItem("prodForWishlist")) || [];
-                wishlistStorage.push(wishlistHandler.body);
-                localStorage.setItem("prodForWishlist", JSON.stringify(wishlistStorage));
-            }
-        })
-    } else if (event.target.tagName.includes('IMG') || event.target.tagName.includes('A') || event.target.tagName.includes('SPAN')) {
-        FROM_STORAGE.forEach(obj => {
-            let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
-            if (parsedID === obj.id) {
-                let items = {
-                    id: obj.id,
-                    image: obj.img,
-                    title: obj["prod-name"],
-                    price: obj.price,
-                    description: obj.description
-                };
-                let detailsStorage = JSON.parse(localStorage.getItem("prodForDetails")) || [];
-                detailsStorage = items;
-                localStorage.setItem("prodForDetails", JSON.stringify(detailsStorage));
-                window.location.href = 'http://localhost:8080/productDetails.html';
-            }
-        });
-    }
-});*/
 
 /**Function that handles adding to cart/wishlist from products, product details, home and wishlist pages**/
 function addProducts() {
@@ -153,7 +96,6 @@ function addProducts() {
             FROM_STORAGE.forEach(obj => {
                 let parsedID;
                 if (window.location.href === 'http://localhost:8080/productDetails.html') {
-                    console.log(event.target);
                     parsedID = parseInt(event.target.parentNode.parentNode.parentNode.parentNode.getAttribute('id'), 10);
                 } else {
                     parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
@@ -162,7 +104,9 @@ function addProducts() {
                     let cartStorage = JSON.parse(localStorage.getItem("prodForCart")) || [];
                     let product = cartStorage.find(p => p.id === parsedID);
                     if (product) {
-                        const cartHandler = new MethodHandler(`http://localhost:3000/cart/${parsedID}`, 'PATCH');
+                        const cartHandler = new MethodHandler(`http://localhost:3000/cart/${parsedID}`, 'PATCH', JSON.stringify({
+                            quantity: 1,
+                        }));
                         cartHandler.sendRequest();
                     } else {
                         const cartHandler = new MethodHandler("http://localhost:3000/cart", 'POST', JSON.stringify({
@@ -170,7 +114,7 @@ function addProducts() {
                                 img: obj.img,
                                 name: obj["prod-name"],
                                 price: obj.price,
-                                quantity: 1,
+                                quantity: '1',
                             }
                         ));
                         cartHandler.sendRequest();
@@ -189,18 +133,26 @@ function addProducts() {
                     parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
                 }
                 if (parsedID === obj.id) {
-                let wishlistStorage = JSON.parse(localStorage.getItem("prodForWishlist")) || [];
-                    const wishlistHandler = new MethodHandler("http://localhost:3000/wishlist", 'POST', JSON.stringify({
-                            id: obj.id,
-                            img: obj.img,
-                            name: obj["prod-name"],
-                            price: obj.price,
+                    let wishlistStorage = JSON.parse(localStorage.getItem("prodForWishlist")) || [];
+                    let product = wishlistStorage.find(p => p.id === parsedID);
+                    if (product) {
+                        const wishlistStorage = new MethodHandler(`http://localhost:3000/cart/${parsedID}`, 'PATCH', JSON.stringify({
                             quantity: 1,
-                        }
-                    ));
-                    wishlistHandler.sendRequest();
-                    wishlistStorage.push(JSON.parse(wishlistHandler.body));
-                    localStorage.setItem("prodForWishlist", JSON.stringify(wishlistStorage));
+                        }));
+                        wishlistStorage.sendRequest();
+                    } else {
+                        const wishlistHandler = new MethodHandler("http://localhost:3000/wishlist", 'POST', JSON.stringify({
+                                id: obj.id,
+                                img: obj.img,
+                                name: obj["prod-name"],
+                                price: obj.price,
+                                quantity: 1,
+                            }
+                        ));
+                        wishlistHandler.sendRequest();
+                        wishlistStorage.push(JSON.parse(wishlistHandler.body));
+                        localStorage.setItem("prodForWishlist", JSON.stringify(wishlistStorage));
+                    }
                 }
             })
         }

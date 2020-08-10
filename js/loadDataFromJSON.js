@@ -1,8 +1,6 @@
 /**The purpose of this function is to get the data from the JSON files and display it on the respective page
 (Bikes, Equipment and Components pages)**/
 
-const products = document.querySelector('.products-template');
-
 function loadProducts() {
     const request = new XMLHttpRequest();
     if (window.location.href === 'http://localhost:8080/bikes.html' || window.location.href === 'https://alex-arhire.github.io/bikes.html' || window.location.href === 'http://127.0.0.1:5500/bikes.html') {
@@ -24,7 +22,6 @@ function loadProducts() {
 }
 loadProducts();
 
-// document.addEventListener("DOMContentLoaded", loadProducts);
 
 
 

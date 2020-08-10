@@ -1,5 +1,4 @@
 /**Handler for retrieving data from LOCAL STORAGE for product details pages**/
-// import {addProducts} from "./loadProducts";
 
 const STORAGE = JSON.parse(localStorage.getItem(('prodForDetails')));
 

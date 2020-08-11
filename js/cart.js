@@ -79,8 +79,8 @@ tableItems.addEventListener('click', event => {
     if (event.target.classList.contains('cart')) {
         FROM_STORAGE.forEach(obj => {
             let parsedID = parseInt(event.target.parentNode.parentNode.getAttribute('id'), 10);
-            console.log(parsedID);
             if (parsedID === obj.id) {
+                let cartStorage = JSON.parse(localStorage.getItem("prodForCart")) || [];
                 const cartHandler = new MethodHandler("http://localhost:3000/cart", 'POST', JSON.stringify({
                         id: obj.id,
                         img: obj.img,
@@ -90,6 +90,8 @@ tableItems.addEventListener('click', event => {
                     }
                 ));
                 cartHandler.sendRequest();
+                cartStorage.push(JSON.parse(cartHandler.body));
+                localStorage.setItem("prodForCart", JSON.stringify(cartStorage));
             }
         })
     }
@@ -99,13 +101,6 @@ tableItems.addEventListener('click', event => {
 function removeItemFromStorage(event, storage, key) {
     let FROM_STORAGE = storage;
     FROM_STORAGE.forEach(obj => {
-        /*        let parsedID;
-                if (window.location.href === 'http://localhost:8080/productDetails.html') {
-                    console.log(event.target);
-                    parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
-                } else {
-                    parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
-                }*/
         let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
         if (parsedID === obj.id) {
             let index = FROM_STORAGE.indexOf(obj);
@@ -117,7 +112,7 @@ function removeItemFromStorage(event, storage, key) {
 
 if (window.location.href === 'http://localhost:8080/cartCheckout.html') {
     const cart = new MethodHandler("http://localhost:3000/cart");
-    cart.sendRequest().then(populateProducts);
+    cart.sendRequest().then(populateProducts).then(updateTotal);
 
     /**Deleting items from the CART**/
     tableItems.addEventListener('click', event => {
@@ -132,7 +127,7 @@ if (window.location.href === 'http://localhost:8080/cartCheckout.html') {
     /**Deleting items from the WISHLIST**/
 } else if (window.location.href === 'http://localhost:8080/wishlist.html') {
     const wishlist = new MethodHandler("http://localhost:3000/wishlist");
-    wishlist.sendRequest().then(populateProducts);
+    wishlist.sendRequest().then(populateProducts).then(updateTotal);
 
     tableItems.addEventListener('click', event => {
         console.log(event.target);
@@ -171,11 +166,5 @@ tableItems.addEventListener('change', event => {
     if (event.target.classList.contains('quantity')) {
         qtyChanged(event);
     }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    setTimeout(function () {
-    updateTotal();
-    }, 200);
 });
 

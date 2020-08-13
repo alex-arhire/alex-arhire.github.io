@@ -8,7 +8,7 @@ export default class MethodHandler {
     }
 
     sendRequest() {
-        return fetch(`${this.route}?search=`, {
+        return fetch(`${this.route}`, {
             method: this.method,
             headers: {
                 'Content-Type': 'application/json',
@@ -26,6 +26,7 @@ export class RenderProducts {
     }
 
     render() {
+        this.container.innerHTML = '';
         this.products.forEach(object => {
             var div = document.createElement('div');
             div.className = 'tile';

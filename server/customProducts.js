@@ -25,7 +25,10 @@ var wishlist = [];
 productsRouter.get("/bikes", function (request, response) {
     console.log(prodList);
     if (request.query.search !== "undefined") {
-        var searched = prodList.filter(prod => prod["prod-name"].concat(prod.category).includes(request.query.search));
+        var searched = prodList.filter(prod =>
+                // [...prod["prod-name"], ...prod.category, ...prod["frame-size"], ...prod["wheel-size"], ...prod.suspension].includes(request.query.search)
+            prod["prod-name"].concat(prod.category).includes(request.query.search)
+        );
         console.log(searched);
         response.send(searched);
         //response.send(library.filter(book => book.title.concat(book.author).includes(request.query.search)))

@@ -35,7 +35,7 @@ checkLocation();
 /**Fetching products data from the server**/
 switch (window.location.href) {
     case "http://localhost:8080/bikes.html":
-        const bikeHandler = new MethodHandler('http://localhost:3000/bikes');
+        const bikeHandler = new MethodHandler('http://localhost:3000/bikes?search=');
         bikeHandler.sendRequest().then(function (response) {
             const renderList = new RenderProducts(response, document.querySelector('.products-template'));
             renderList.render();
@@ -59,25 +59,11 @@ switch (window.location.href) {
 }
 
 /**Search functionality**/
-/*
-function sendRequest(lookupValue) {
-    return fetch(`http://localhost:3000/bikes?search=${lookupValue}`, {
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-    }).then(r => r.json());
-}
 
-sendRequest().then(populateProducts);
-*/
-
-var searchInput = document.getElementById('search-bar');
 setTimeout(function () {
+    var searchInput = document.getElementById('search-bar');
     searchInput.addEventListener('blur', event => {
-        console.log(event.target.id);
-        const search = new MethodHandler(`http://localhost:3000/bikes${searchInput.value}`);
+        const search = new MethodHandler(`http://localhost:3000/bikes?search=${searchInput.value}`);
         event.preventDefault();
         search.sendRequest().then(function (response) {
             const renderList = new RenderProducts(response, document.querySelector('.products-template'));

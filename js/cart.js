@@ -61,15 +61,6 @@ function populateProducts(items = []) {
     });
 }
 
-/**Cleanup function**/
-function clean() {
-    const cartStorage = JSON.parse(localStorage.getItem("prodForCart"));
-    if (cartStorage.length === 0) {
-        console.log(cartStorage);
-        tableItems.innerHTML = '';
-    }
-}
-
 /**Searching for existing products in LOCAL STORAGE**/
 const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
 

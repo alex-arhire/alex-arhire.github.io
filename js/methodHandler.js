@@ -1,4 +1,5 @@
-/**Handler module for routes and method types**/
+/**This file defined classes fetch methods and render DOM method**/
+
 export default class MethodHandler {
     constructor(route, method, body) {
         this.route = route;
@@ -7,7 +8,7 @@ export default class MethodHandler {
     }
 
     sendRequest() {
-        return fetch(this.route, {
+        return fetch(`${this.route}?search=`, {
             method: this.method,
             headers: {
                 'Content-Type': 'application/json',
@@ -17,6 +18,81 @@ export default class MethodHandler {
         }).then(r => r.json());
     }
 }
+
+export class RenderProducts {
+    constructor(products, container) {
+        this.products = products;
+        this.container = container;
+    }
+
+    render() {
+        this.products.forEach(object => {
+            var div = document.createElement('div');
+            div.className = 'tile';
+            div.id = object.id;
+
+            var img = document.createElement('img');
+            img.src = object.img;
+            div.appendChild(img);
+
+            var a = document.createElement('a');
+            a.textContent = object["prod-name"];
+            a.href = '#';
+            div.appendChild(a);
+
+            var price = document.createElement('span');
+            price.textContent = object.price;
+            price.className = 'prod-price';
+            div.appendChild(price);
+
+            var buttonCart = document.createElement('button');
+            buttonCart.className = 'cart';
+            buttonCart.textContent = 'Add to Cart';
+            div.appendChild(buttonCart);
+
+            var buttonWishlist = document.createElement('button');
+            buttonWishlist.className = 'wishlist';
+            buttonWishlist.textContent = 'Add to Wishlist';
+            div.appendChild(buttonWishlist);
+
+            this.container.appendChild(div);
+        });
+    }
+}
+
+/*class Filter {
+    constructor() {
+        this.filteredFunctions = [];
+    }
+
+    filterByCategory(category) {
+        return item => item.category === category;
+    }
+
+    filterByFrameSize(size) {
+        return item => item['frame-size'] === size;
+    }
+
+    filterBySuspension(suspension) {
+        return item => item.suspension === suspension;
+    }
+
+    filterByWheelSize(wheel) {
+        return item => item['wheel-size'] === wheel;
+    }
+}*/
+
+/*
+const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
+let result = FROM_STORAGE;
+const filtered = new Filter();
+
+
+
+filtered.filteredFunctions.forEach(obj => {
+    result = result.filter(obj);
+});
+*/
 
 /*
 class AddProducts {
@@ -116,48 +192,6 @@ class AddProducts {
         parentEl.appendChild(div);
     });
 }*/
-
-/*
-class RenderProducts {
-    constructor(productList = []) {
-        this.products = productList;
-    }
-
-    render() {
-        this.products.forEach(object => {
-            var div = document.createElement('div');
-            div.className = 'tile';
-            div.id = object.id;
-
-            var img = document.createElement('img');
-            img.src = object.img;
-            div.appendChild(img);
-
-            var a = document.createElement('a');
-            a.textContent = object["prod-name"];
-            a.href = '#';
-            div.appendChild(a);
-
-            var price = document.createElement('span');
-            price.textContent = object.price;
-            price.className = 'prod-price';
-            div.appendChild(price);
-
-            var buttonCart = document.createElement('button');
-            buttonCart.className = 'cart';
-            buttonCart.textContent = 'Add to Cart';
-            div.appendChild(buttonCart);
-
-            var buttonWishlist = document.createElement('button');
-            buttonWishlist.className = 'wishlist';
-            buttonWishlist.textContent = 'Add to Wishlist';
-            div.appendChild(buttonWishlist);
-
-            productsContainer.appendChild(div);
-        });
-    }
-}
-*/
 
 
 /*productsContainer.addEventListener('click', event => {

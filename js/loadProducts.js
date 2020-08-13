@@ -1,5 +1,5 @@
 /**Imports**/
-import MethodHandler from './methodHandler.js';
+import MethodHandler, {RenderProducts} from './methodHandler.js';
 
 /**Checking page location**/
 let container;
@@ -27,64 +27,66 @@ function checkLocation() {
         default:
             break;
     }
-    console.log(container);
     return container;
 }
 
 checkLocation();
 
-/**Rendering the DOM elements**/
-function populateProducts(products = []) {
-    products.forEach(object => {
-        var div = document.createElement('div');
-        div.className = 'tile';
-        div.id = object.id;
-
-        var img = document.createElement('img');
-        img.src = object.img;
-        div.appendChild(img);
-
-        var a = document.createElement('a');
-        a.textContent = object["prod-name"];
-        a.href = '#';
-        div.appendChild(a);
-
-        var price = document.createElement('span');
-        price.textContent = object.price;
-        price.className = 'prod-price';
-        div.appendChild(price);
-
-        var buttonCart = document.createElement('button');
-        buttonCart.className = 'cart';
-        buttonCart.textContent = 'Add to Cart';
-        div.appendChild(buttonCart);
-
-        var buttonWishlist = document.createElement('button');
-        buttonWishlist.className = 'wishlist';
-        buttonWishlist.textContent = 'Add to Wishlist';
-        div.appendChild(buttonWishlist);
-
-        container.appendChild(div);
-    });
-}
-
 /**Fetching products data from the server**/
 switch (window.location.href) {
     case "http://localhost:8080/bikes.html":
         const bikeHandler = new MethodHandler('http://localhost:3000/bikes');
-        bikeHandler.sendRequest().then(populateProducts);
+        bikeHandler.sendRequest().then(function (response) {
+            const renderList = new RenderProducts(response, document.querySelector('.products-template'));
+            renderList.render();
+        });
         break;
     case "http://localhost:8080/equipment.html":
         const equipHandler = new MethodHandler('http://localhost:3000/equipment');
-        equipHandler.sendRequest().then(populateProducts);
+        equipHandler.sendRequest().then(function (response) {
+            const renderList = new RenderProducts(response, document.querySelector('.products-template'));
+            renderList.render();
+        });
         break;
     case "http://localhost:8080/components.html":
         const compHandler = new MethodHandler('http://localhost:3000/components');
-        compHandler.sendRequest().then(populateProducts);
+        compHandler.sendRequest().then(function (response) {
+            const renderList = new RenderProducts(response, document.querySelector('.products-template'));
+            renderList.render();
+        });
     default:
         break;
 }
 
+/**Search functionality**/
+/*
+function sendRequest(lookupValue) {
+    return fetch(`http://localhost:3000/bikes?search=${lookupValue}`, {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+    }).then(r => r.json());
+}
+
+sendRequest().then(populateProducts);
+*/
+
+var searchInput = document.getElementById('search-bar');
+setTimeout(function () {
+    searchInput.addEventListener('blur', event => {
+        console.log(event.target.id);
+        const search = new MethodHandler(`http://localhost:3000/bikes${searchInput.value}`);
+        event.preventDefault();
+        search.sendRequest().then(function (response) {
+            const renderList = new RenderProducts(response, document.querySelector('.products-template'));
+            renderList.render();
+        });
+    });
+}, 500);
+
+/**end search**/
 
 /**Function that handles adding to cart/wishlist from products, product details, home and wishlist pages**/
 function addProducts() {

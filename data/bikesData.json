@@ -1,23 +1,15 @@
 [
-   {
+  {
     "id": 1,
     "img": "./../img/productPage_Bikes/MY20Anthem291_ColorA.jpg",
     "prod-name": "Anthem 29",
     "price": "$1,500.00",
     "quantity": "3",
     "category": "enduro",
-    "frame-size": [
-      "small",
-      "medium",
-      "large"
-    ],
+    "frame-size": "large",
     "suspension": "full-suspension",
-    "wheel-size": [
-      26,
-      27.5,
-      29
-    ],
-     "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
+    "wheel-size": "29",
+    "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
   },
   {
     "id": 2,
@@ -26,20 +18,11 @@
     "price": "$2,300.00",
     "quantity": "2",
     "category": "downhill",
-    "frame-size": [
-      "small",
-      "medium",
-      "large"
-    ],
+    "frame-size": "medium",
     "suspension": "full-suspension",
-    "wheel-size": [
-      26,
-      27.5,
-      29
-    ],
+    "wheel-size": "27.5",
     "description": "From the bike park to enduro tracks to steep singletrack shredding, this all-mountain bruiser has swagger to spare. The lightweight, super-stiff aluminum frame is long and low, and its Maestro suspension helps you float through the rough stuff."
   },
-
   {
     "id": 3,
     "img": "./../img/productPage_Bikes/MY20ReignADPRO290_ColorA.jpg",
@@ -47,17 +30,9 @@
     "price": "$1,700.00",
     "quantity": "5",
     "category": "enduro",
-    "frame-size": [
-      "small",
-      "medium",
-      "large"
-    ],
+    "frame-size": "medium",
     "suspension": "full-suspension",
-    "wheel-size": [
-      26,
-      27.5,
-      29
-    ],
+    "wheel-size": "27.5",
     "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
   },
   {
@@ -67,17 +42,9 @@
     "price": "$4,700.00",
     "quantity": "7",
     "category": "downhill",
-    "frame-size": [
-      "small",
-      "medium",
-      "large"
-    ],
+    "frame-size": "small",
     "suspension": "full-suspension",
-    "wheel-size": [
-      26,
-      27.5,
-      29
-    ],
+    "wheel-size": "26",
     "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
   },
   {
@@ -87,17 +54,9 @@
     "price": "$2,800.00",
     "quantity": "1",
     "category": "trail",
-    "frame-size": [
-      "small",
-      "medium",
-      "large"
-    ],
+    "frame-size": "large",
     "suspension": "full-suspension",
-    "wheel-size": [
-      26,
-      27.5,
-      29
-    ],
+    "wheel-size": "27.5",
     "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
   },
   {
@@ -107,17 +66,9 @@
     "price": "$1,400.00",
     "quantity": "6",
     "category": "trail",
-    "frame-size": [
-      "small",
-      "medium",
-      "large"
-    ],
+    "frame-size": "medium",
     "suspension": "hardtail",
-    "wheel-size": [
-      26,
-      27.5,
-      29
-    ],
+    "wheel-size": "29",
     "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
   },
   {
@@ -127,17 +78,9 @@
     "price": "$2,700.00",
     "quantity": "3",
     "category": "trail",
-    "frame-size": [
-      "small",
-      "medium",
-      "large"
-    ],
+    "frame-size": "medium",
     "suspension": "full-suspension",
-    "wheel-size": [
-      26,
-      27.5,
-      29
-    ],
+    "wheel-size": "27.5",
     "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
   },
   {
@@ -147,17 +90,9 @@
     "price": "$3,500.00",
     "quantity": "3",
     "category": "trail",
-    "frame-size": [
-      "small",
-      "medium",
-      "large"
-    ],
+    "frame-size": "small",
     "suspension": "full-suspension",
-    "wheel-size": [
-      26,
-      27.5,
-      29
-    ],
+    "wheel-size": "26",
     "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
   },
   {
@@ -167,17 +102,9 @@
     "price": "$1,000.00",
     "quantity": "3",
     "category": "trail",
-    "frame-size": [
-      "small",
-      "medium",
-      "large"
-    ],
+    "frame-size": "large",
     "suspension": "hardtail",
-    "wheel-size": [
-      26,
-      27.5,
-      29
-    ],
+    "wheel-size": "29",
     "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
   }
 ]

@@ -48,23 +48,23 @@
         <section class="filters">
             <h2>Catalog</h2>
             <ul class="by-category"><span>Category</span>
-                <li><input id="trail" type="checkbox" name="trail" value="trail"/><label for="trail">Trail</label></li>
-                <li><input id="enduro" type="checkbox" name="enduro" value="enduro"/><label for="enduro">Enduro</label></li>
-                <li><input id="downhill" type="checkbox" name="downhill" value="downhill"/><label for="downhill">Downhill</label></li>
+                <li><input class="category" id="trail" type="checkbox" name="trail" value="trail"/><label for="trail">Trail</label></li>
+                <li><input class="category" id="enduro" type="checkbox" name="enduro" value="enduro"/><label for="enduro">Enduro</label></li>
+                <li><input class="category" id="downhill" type="checkbox" name="downhill" value="downhill"/><label for="downhill">Downhill</label></li>
             </ul>
             <ul class="by-frame-size">Frame Size
-                <li><input id="small" type="checkbox" name="small" value="small"/><label for="small">Small</label></li>
-                <li><input id="medium" type="checkbox" name="medium" value="medium"/><label for="medium">Medium</label></li>
-                <li><input id="large" type="checkbox" name="large" value="large"/><label for="large">Large</label></li>
+                <li><input class="frame-size" id="small" type="checkbox" name="small" value="small"/><label for="small">Small</label></li>
+                <li><input class="frame-size" id="medium" type="checkbox" name="medium" value="medium"/><label for="medium">Medium</label></li>
+                <li><input class="frame-size" id="large" type="checkbox" name="large" value="large"/><label for="large">Large</label></li>
             </ul>
             <ul class="by-suspension">Suspension
-                <li><input id="full-suspension" type="checkbox" name="full-suspension" value="full-suspension"/><label for="full-suspension">Full Suspension</label></li>
-                <li><input id="hardtail" type="checkbox" name="hardtail" value="hardtail"/><label for="hardtail">Hardtail</label></li>
+                <li><input class="suspension" id="full-suspension" type="checkbox" name="full-suspension" value="full-suspension"/><label for="full-suspension">Full Suspension</label></li>
+                <li><input class="suspension" id="hardtail" type="checkbox" name="hardtail" value="hardtail"/><label for="hardtail">Hardtail</label></li>
             </ul>
             <ul class="by-wheel-size">Wheel Size
-                <li><input id="twenty-six" type="checkbox" name="twenty-six" value="twenty-six"/><label for="twenty-six">26&Prime;</label></li>
-                <li><input id="twenty-seven-five" type="checkbox" name="twenty-seven-five" value="twenty-seven-five"/><label for="twenty-seven-five">27.5&Prime;</label></li>
-                <li><input id="twenty-nine" type="checkbox" name="twenty-nine" value="twenty-nine"/><label for="twenty-nine">29&Prime;</label></li>
+                <li><input class="wheel-size" id="twenty-six" type="checkbox" name="twenty-six" value="26"/><label for="twenty-six">26&Prime;</label></li>
+                <li><input class="wheel-size" id="twenty-seven-five" type="checkbox" name="twenty-seven-five" value="27.5"/><label for="twenty-seven-five">27.5&Prime;</label></li>
+                <li><input class="wheel-size" id="twenty-nine" type="checkbox" name="twenty-nine" value="29"/><label for="twenty-nine">29&Prime;</label></li>
             </ul>
         </section>
         <section class="products-template"></section>
@@ -80,6 +80,6 @@
 </div>
 <script src="./js/loadDataFromJSON.js" type="text/javascript"></script>
 <script src="./js/loadProducts.js" type="module"></script>
-<script src="./js/filter.js" type="text/javascript"></script>
+<script src="./js/filter.js" type="module"></script>
 </body>
 </html>

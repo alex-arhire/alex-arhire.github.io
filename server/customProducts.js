@@ -23,7 +23,15 @@ var wishlist = [];
 
 /**GET handlers**/
 productsRouter.get("/bikes", function (request, response) {
-    response.send(prodList);
+    console.log(prodList);
+    if (request.query.search !== "undefined") {
+        var searched = prodList.filter(prod => prod["prod-name"].concat(prod.category).includes(request.query.search));
+        console.log(searched);
+        response.send(searched);
+        //response.send(library.filter(book => book.title.concat(book.author).includes(request.query.search)))
+    } else {
+        response.send(prodList)
+    }
 });
 
 productsRouter.get("/equipment", function (request, response) {

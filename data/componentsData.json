@@ -1,127 +1,55 @@
 [
   {
-    "img": "./../img/Equip&Comp/526855_4376102.jpg",
-    "prod-name": "Bell Super DH MIPS",
-    "price": "$250.00",
+    "img": "./../img/Components/crankShimano1.jpg",
+    "prod-name": "Shimano FC-MT500 10-speed Crank",
+    "price": "$62.00",
     "stock": "In Stock",
-    "category": "helmet",
-    "color": [
-      "black",
-      "blue",
-      "red",
-      "green",
-      "yellow",
-      "grey"
-    ],
-    "size": [
-      "small",
-      "medium",
-      "large"
-    ]
+    "category": "crank",
+    "brand": "shimano"
   },
   {
-    "img": "./../img/Equip&Comp/461414_4013189.jpg",
-    "prod-name": "Fox Head Rampage Comp Reno",
-    "price": "$140.00",
+    "img": "./../img/Components/crankShimano2.jpg",
+    "prod-name": "Shimano ZEE 10-speed Crank FC-M640 36T",
+    "price": "$105.00",
     "stock": "In Stock",
-    "category": "helmet",
-    "color": [
-      "black",
-      "blue",
-      "red",
-      "green",
-      "yellow",
-      "grey"
-    ],
-    "size": [
-      "small",
-      "medium",
-      "large"
-    ]
+    "category": "crank",
+    "brand": "shimano"
   },
   {
-    "img": "./../img/Equip&Comp/424716_3781348.jpg",
-    "prod-name": "O'Neal Fury RL Hybrid",
-    "price": "$250.00",
+    "img": "./../img/Components/crankShimano4.jpg",
+    "prod-name": "Shimano DEORE 2x10-speed Crank FC-M6000 34/24",
+    "price": "$73.00",
     "stock": "In Stock",
-    "category": "helmet",
-    "color": [
-      "black",
-      "blue",
-      "red",
-      "green",
-      "yellow",
-      "grey"
-    ],
-    "size": [
-      "small",
-      "medium",
-      "large"
-    ]
+    "category": "crank",
+    "brand": "shimano"
   },
   {
-    "img": "./../img/Equip&Comp/566549_4647519.jpg",
-    "prod-name": "100% R-Core SS19",
-    "price": "$30.00",
+    "img": "./../img/Components/derailleurSRAM1.jpg",
+    "prod-name": "SRAM Red Aero Glide WiFli Rear Derailleur ",
+    "price": "$230.00",
     "stock": "In Stock",
-    "category": "jersey",
-    "color": [
-      "black",
-      "blue",
-      "red",
-      "green",
-      "yellow",
-      "grey"
-    ],
-    "size": [
-      "small",
-      "medium",
-      "large"
-    ]
+    "category": "derailleur",
+    "size": "medium"
   },
   {
-    "img": "./../img/Equip&Comp/424161_3781310.jpg",
-    "prod-name": "O'Neal Matrix",
-    "price": "$45.00",
+    "img": "./../img/Components/derailleurSRAM2.jpg",
+    "prod-name": "SRAM SX Eagle 12-speed Rear Derailleur",
+    "price": "$75.00",
     "stock": "In Stock",
-    "category": "jersey",
-    "color": [
-      "black",
-      "blue",
-      "red",
-      "green",
-      "yellow",
-      "grey"
-    ],
-    "size": [
-      "small",
-      "medium",
-      "large"
-    ]
+    "category": "derailleur",
+    "size": "large"
   },
   {
-    "img": "./../img/Equip&Comp/545237_4521368.jpg",
-    "prod-name": "Fox Head Ranger",
-    "price": "$59.00",
+    "img": "./../img/Components/derailleurSRAM3.jpg",
+    "prod-name": "SRAM X01 Eagle 12-speed Rear Derailleur",
+    "price": "$205.00",
     "stock": "In Stock",
-    "category": "jersey",
-    "color": [
-      "black",
-      "blue",
-      "red",
-      "green",
-      "yellow",
-      "grey"
-    ],
-    "size": [
-      "small",
-      "medium",
-      "large"
-    ]
+    "category": "derailleur",
+    "size": "small"
   },
   {
-    "img": "./../img/Equip&Comp/501158_4249444.jpg",
-    "prod-name": "Fox Racing Defend",
+    "img": "./../img/Components/tyreContinental1.jpg",
+    "prod-name": "Continental Race King 2.2 ProTection 29x2.2\"",
     "price": "$25.00",
     "stock": "In Stock",
     "category": "gloves",

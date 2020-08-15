@@ -49,5 +49,8 @@ button:focus {
   display: inline-flex;
   align-items: center;
 }
+.footer .fa {
+  color: #fc5500;
+}
 
 /*# sourceMappingURL=footer-Template.css.map */

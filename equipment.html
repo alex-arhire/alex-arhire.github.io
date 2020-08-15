@@ -48,14 +48,14 @@
         <section class="filters">
             <h2>Catalog</h2>
             <ul class="by-category"><span>Category</span>
-                <li><input id="helmet" type="checkbox" name="helmet" value="helmet"/><label for="helmet">Helmet</label></li>
-                <li><input id="jersey" type="checkbox" name="jersey" value="jersey"/><label for="jersey">Jersey</label></li>
-                <li><input id="gloves" type="checkbox" name="gloves" value="gloves"/><label for="gloves">Gloves</label></li>
+                <li><input class="category" id="helmet" type="checkbox" name="helmet" value="helmet"/><label for="helmet">Helmet</label></li>
+                <li><input class="category" id="jersey" type="checkbox" name="jersey" value="jersey"/><label for="jersey">Jersey</label></li>
+                <li><input class="category" id="gloves" type="checkbox" name="gloves" value="gloves"/><label for="gloves">Gloves</label></li>
             </ul>
             <ul class="by-frame-size">Size
-                <li><input id="small" type="checkbox" name="small" value="small"/><label for="small">Small</label></li>
-                <li><input id="medium" type="checkbox" name="medium" value="medium"/><label for="medium">Medium</label></li>
-                <li><input id="large" type="checkbox" name="large" value="large"/><label for="large">Large</label></li>
+                <li><input class="size" id="small" type="checkbox" name="small" value="small"/><label for="small">Small</label></li>
+                <li><input class="size" id="medium" type="checkbox" name="medium" value="medium"/><label for="medium">Medium</label></li>
+                <li><input class="size" id="large" type="checkbox" name="large" value="large"/><label for="large">Large</label></li>
             </ul>
             <ul class="color-filter">Color
                 <li class="colorbox"><a id="black" href="#"></a></li>
@@ -79,6 +79,6 @@
 </div>
 <script src="./js/loadDataFromJSON.js" type="text/javascript"></script>
 <script src="./js/loadProducts.js" type="module"></script>
-<script src="./js/filter.js" type="text/javascript"></script>
+<script src="./js/filter.js" type="module"></script>
 </body>
 </html>

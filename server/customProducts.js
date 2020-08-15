@@ -140,7 +140,7 @@ productsRouter.delete("/wishlist/:productId", function (request, response) {
 });
 
 /**PATCH handlers**/
-productsRouter.patch("/cart/:productId", (req, res) => {
+/*productsRouter.patch("/cart/:productId", (req, res) => {
     const productId = req.params.productId;
     const body = req.body;
 
@@ -157,6 +157,6 @@ productsRouter.patch("/cart/:productId", (req, res) => {
         // Object.assign(product, body);
     }
     res.send(product);
-});
+});*/
 
 module.exports = productsRouter;

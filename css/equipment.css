@@ -455,6 +455,10 @@ img {
   padding-top: 20px;
 }
 
+#cart-icon img, #wishlist-icon img {
+  padding: 0;
+}
+
 .color-filter {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

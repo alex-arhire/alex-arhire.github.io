@@ -96,6 +96,11 @@ function addProducts() {
                             quantity: 1,
                         }));
                         cartHandler.sendRequest();
+                        console.log(document.querySelector('.pop-up'));
+                        document.querySelector('.pop-up').style.display = 'initial';
+                        setTimeout(function () {
+                            document.querySelector('.pop-up').style.display = 'none';
+                        }, 4000);
                     } else {
                         const cartHandler = new MethodHandler("http://localhost:3000/cart", 'POST', JSON.stringify({
                                 id: obj.id,
@@ -127,6 +132,10 @@ function addProducts() {
                         const wishlistStorage = new MethodHandler(`http://localhost:3000/cart/${parsedID}`, 'PATCH', JSON.stringify({
                             quantity: 1,
                         }));
+                        document.querySelector('.pop-up2').style.display = 'initial';
+                        setTimeout(function () {
+                            document.querySelector('.pop-up2').style.display = 'none';
+                        }, 4000);
                         wishlistStorage.sendRequest();
                     } else {
                         const wishlistHandler = new MethodHandler("http://localhost:3000/wishlist", 'POST', JSON.stringify({

@@ -23,13 +23,11 @@ var wishlist = [];
 
 /**GET handlers**/
 productsRouter.get("/bikes", function (request, response) {
-    console.log(prodList);
     if (request.query.search !== "undefined") {
         var searched = prodList.filter(prod =>
                 // [...prod["prod-name"], ...prod.category, ...prod["frame-size"], ...prod["wheel-size"], ...prod.suspension].includes(request.query.search)
             prod["prod-name"].concat(prod.category).includes(request.query.search)
         );
-        console.log(searched);
         response.send(searched);
         //response.send(library.filter(book => book.title.concat(book.author).includes(request.query.search)))
     } else {
@@ -38,11 +36,25 @@ productsRouter.get("/bikes", function (request, response) {
 });
 
 productsRouter.get("/equipment", function (request, response) {
-    response.send(equipList);
+    if (request.query.search !== "undefined") {
+        var searched = equipList.filter(prod =>
+            prod["prod-name"].concat(prod.category).includes(request.query.search)
+        );
+        response.send(searched);
+    } else {
+        response.send(equipList)
+    }
 });
 
 productsRouter.get("/components", function (request, response) {
-    response.send(compList);
+    if (request.query.search !== "undefined") {
+        var searched = compList.filter(prod =>
+            prod["prod-name"].concat(prod.category).includes(request.query.search)
+        );
+        response.send(searched);
+    } else {
+        response.send(compList)
+    }
 });
 
 productsRouter.get("/cart", function (request, response) {

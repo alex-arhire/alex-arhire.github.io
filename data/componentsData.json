@@ -1,5 +1,6 @@
 [
   {
+    "id": 201,
     "img": "./../img/Components/crankShimano1.jpg",
     "prod-name": "Shimano FC-MT500 10-speed Crank",
     "price": "$62.00",
@@ -8,6 +9,7 @@
     "brand": "shimano"
   },
   {
+    "id": 202,
     "img": "./../img/Components/crankShimano2.jpg",
     "prod-name": "Shimano ZEE 10-speed Crank FC-M640 36T",
     "price": "$105.00",
@@ -16,6 +18,7 @@
     "brand": "shimano"
   },
   {
+    "id": 203,
     "img": "./../img/Components/crankShimano4.jpg",
     "prod-name": "Shimano DEORE 2x10-speed Crank FC-M6000 34/24",
     "price": "$73.00",
@@ -24,87 +27,63 @@
     "brand": "shimano"
   },
   {
+    "id": 204,
     "img": "./../img/Components/derailleurSRAM1.jpg",
     "prod-name": "SRAM Red Aero Glide WiFli Rear Derailleur ",
     "price": "$230.00",
     "stock": "In Stock",
     "category": "derailleur",
-    "size": "medium"
+    "size": "medium",
+    "brand": "sram"
   },
   {
+    "id": 205,
     "img": "./../img/Components/derailleurSRAM2.jpg",
     "prod-name": "SRAM SX Eagle 12-speed Rear Derailleur",
     "price": "$75.00",
     "stock": "In Stock",
     "category": "derailleur",
-    "size": "large"
+    "size": "large",
+    "brand": "sram"
   },
   {
+    "id": 206,
     "img": "./../img/Components/derailleurSRAM3.jpg",
     "prod-name": "SRAM X01 Eagle 12-speed Rear Derailleur",
     "price": "$205.00",
     "stock": "In Stock",
     "category": "derailleur",
-    "size": "small"
+    "size": "small",
+    "brand": "sram"
   },
   {
+    "id": 207,
     "img": "./../img/Components/tyreContinental1.jpg",
     "prod-name": "Continental Race King 2.2 ProTection 29x2.2\"",
-    "price": "$25.00",
+    "price": "$43.00",
     "stock": "In Stock",
-    "category": "gloves",
-    "color": [
-      "black",
-      "blue",
-      "red",
-      "green",
-      "yellow",
-      "grey"
-    ],
-    "size": [
-      "small",
-      "medium",
-      "large"
-    ]
+    "category": "tyre",
+    "size": "29",
+    "brand": "continental"
   },
   {
-    "img": "./../img/Equip&Comp/548017_4507878.jpg",
-    "prod-name": "100% Celium",
-    "price": "$29.00",
+    "id": 208,
+    "img": "./../img/Components/tyreContinental2.jpg",
+    "prod-name": "Continental Race King 2.2 Performance TLR 26x2.2\"",
+    "price": "$23.00",
     "stock": "In Stock",
-    "category": "gloves",
-    "color": [
-      "black",
-      "blue",
-      "red",
-      "green",
-      "yellow",
-      "grey"
-    ],
-    "size": [
-      "small",
-      "medium",
-      "large"
-    ]
+    "category": "tyre",
+    "size": "26",
+    "brand": "continental"
   },
   {
-    "img": "./../img/Equip&Comp/522388_4349923.jpg",
-    "prod-name": "O'Neal Revolution",
+    "id": 209,
+    "img": "./../img/Components/tyreContinental2.jpg",
+    "prod-name": "Continental Der Baron 2.4 Projekt ProTection Apex 27.5x2.4\"",
     "price": "$34.99",
     "stock": "In Stock",
-    "category": "gloves",
-    "color": [
-      "black",
-      "blue",
-      "red",
-      "green",
-      "yellow",
-      "grey"
-    ],
-    "size": [
-      "small",
-      "medium",
-      "large"
-    ]
+    "category": "tyre",
+    "size": "27.5",
+    "brand": "continental"
   }
 ]

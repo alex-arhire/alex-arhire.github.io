@@ -42,14 +42,14 @@ switch (window.location.href) {
         });
         break;
     case "http://localhost:8080/equipment.html":
-        const equipHandler = new MethodHandler('http://localhost:3000/equipment');
+        const equipHandler = new MethodHandler('http://localhost:3000/equipment?search=');
         equipHandler.sendRequest().then(function (response) {
             const renderList = new RenderProducts(response, document.querySelector('.products-template'));
             renderList.render();
         });
         break;
     case "http://localhost:8080/components.html":
-        const compHandler = new MethodHandler('http://localhost:3000/components');
+        const compHandler = new MethodHandler('http://localhost:3000/components?search=');
         compHandler.sendRequest().then(function (response) {
             const renderList = new RenderProducts(response, document.querySelector('.products-template'));
             renderList.render();

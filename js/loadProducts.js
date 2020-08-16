@@ -1,5 +1,5 @@
 /**Imports**/
-import MethodHandler, {RenderProducts} from './methodHandler.js';
+import MethodHandler, {RenderProducts, search} from './methodHandler.js';
 
 /**Checking page location**/
 let container;
@@ -40,6 +40,7 @@ switch (window.location.href) {
             const renderList = new RenderProducts(response, document.querySelector('.products-template'));
             renderList.render();
         });
+        search('bikes');
         break;
     case "http://localhost:8080/equipment.html":
         const equipHandler = new MethodHandler('http://localhost:3000/equipment?search=');
@@ -47,6 +48,7 @@ switch (window.location.href) {
             const renderList = new RenderProducts(response, document.querySelector('.products-template'));
             renderList.render();
         });
+        search('equipment');
         break;
     case "http://localhost:8080/components.html":
         const compHandler = new MethodHandler('http://localhost:3000/components?search=');
@@ -54,25 +56,11 @@ switch (window.location.href) {
             const renderList = new RenderProducts(response, document.querySelector('.products-template'));
             renderList.render();
         });
+        search('components');
+        break;
     default:
         break;
 }
-
-/**Search functionality**/
-
-setTimeout(function () {
-    var searchInput = document.getElementById('search-bar');
-    searchInput.addEventListener('blur', event => {
-        const search = new MethodHandler(`http://localhost:3000/bikes?search=${searchInput.value}`);
-        event.preventDefault();
-        search.sendRequest().then(function (response) {
-            const renderList = new RenderProducts(response, document.querySelector('.products-template'));
-            renderList.render();
-        });
-    });
-}, 500);
-
-/**end search**/
 
 /**Function that handles adding to cart/wishlist from products, product details, home and wishlist pages**/
 function addProducts() {

@@ -61,6 +61,24 @@ export class RenderProducts {
     }
 }
 
+/**Search functionality**/
+
+export function search(page) {
+    setTimeout(function () {
+        var searchInput = document.getElementById('search-bar');
+        searchInput.addEventListener('blur', event => {
+            const search = new MethodHandler(`http://localhost:3000/${page}?search=${searchInput.value}`);
+            event.preventDefault();
+            search.sendRequest().then(function (response) {
+                const renderList = new RenderProducts(response, document.querySelector('.products-template'));
+                renderList.render();
+            });
+        });
+    }, 500);
+}
+
+/**end search**/
+
 /*class Filter {
     constructor() {
         this.filteredFunctions = [];

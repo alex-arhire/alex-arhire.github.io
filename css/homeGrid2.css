@@ -76,6 +76,9 @@ button:hover {
   opacity: 1;
   z-index: 1;
 }
+.card .shop-now {
+  padding-left: 0;
+}
 
 .mid-sec.card1 {
   grid-area: mid-sec-card1;

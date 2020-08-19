@@ -119,9 +119,7 @@ if (window.location.href === 'http://localhost:8080/cartCheckout.html') {
 } else if (window.location.href === 'http://localhost:8080/wishlist.html') {
     const wishlist = new MethodHandler("http://localhost:3000/wishlist");
     wishlist.sendRequest().then(populateProducts).then(updateTotal);
-
     tableItems.addEventListener('click', event => {
-        console.log(event.target);
         var itemId = event.target.parentNode.getAttribute("id");
         if (event.target.classList.contains('prod-remove')) {
             const wishlistHandler = new MethodHandler(`http://localhost:3000/wishlist/${itemId}`, 'DELETE');
@@ -132,17 +130,22 @@ if (window.location.href === 'http://localhost:8080/cartCheckout.html') {
 }
 
 /**Calculating total**/
-function updateTotal() {
-        let cartItem = document.getElementsByClassName('cart-item');
-        let total = 0;
-        for (var i = 0; i < cartItem.length; i++) {
-            var cartData = cartItem[i];
-            var price = parseFloat(cartData.getElementsByClassName('prod-price')[0].innerText.replace('$', '').replace(',', ''));
-            var quantity = cartData.getElementsByClassName('quantity')[0].valueAsNumber;
-            total += (price * quantity);
-        }
-        document.getElementsByClassName('total-price')[0].innerText = '$' + total;
+let shipping = document.querySelectorAll('input[type=checkbox]');
 
+function updateTotal() {
+    let cartItem = document.getElementsByClassName('cart-item');
+    let total = 0;
+    const checkedItem = Array.from(shipping).find(option => option.checked);
+    if (checkedItem) {
+        total = parseFloat(checkedItem.value);
+    }
+    for (var i = 0; i < cartItem.length; i++) {
+        var cartData = cartItem[i];
+        var price = parseFloat(cartData.getElementsByClassName('prod-price')[0].innerText.replace('$', '').replace(',', ''));
+        var quantity = cartData.getElementsByClassName('quantity')[0].valueAsNumber;
+        total += (price * quantity);
+    }
+    document.getElementsByClassName('total-price')[0].innerText = '$' + total;
 }
 
 function qtyChanged(event) {
@@ -152,6 +155,10 @@ function qtyChanged(event) {
     }
     updateTotal();
 }
+
+shipping.forEach(checkbox => {
+    checkbox.addEventListener('click', updateTotal);
+});
 
 tableItems.addEventListener('change', event => {
     if (event.target.classList.contains('quantity')) {

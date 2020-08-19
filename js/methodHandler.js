@@ -1,4 +1,4 @@
-/**This file defined classes fetch methods and render DOM method**/
+/**This file defined classes fetch methods, render DOM and search functions**/
 
 export default class MethodHandler {
     constructor(route, method, body) {

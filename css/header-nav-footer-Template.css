@@ -12,6 +12,10 @@ ul li, a {
   user-select: none;
 }
 
+.products-template .tile a {
+  padding: 0;
+}
+
 /*Mixins*/
 /*Slide-in buttons*/
 /*Product style*/
@@ -42,13 +46,13 @@ button:focus {
   grid-auto-rows: minmax(100px, auto);
   width: 100%;
   height: auto;
-  grid-template-areas: "top-menu top-menu top-menu top-menu top-menu top-menu" "top-menu top-menu top-menu top-menu top-menu top-menu" "nav-bar nav-bar nav-bar nav-bar nav-bar nav-bar";
+  grid-template-areas: "top-menu top-menu top-menu top-menu top-menu top-menu" "top-menu top-menu top-menu top-menu top-menu top-menu" "top-menu top-menu top-menu top-menu top-menu top-menu" "top-menu top-menu top-menu top-menu top-menu top-menu" "top-menu top-menu top-menu top-menu top-menu top-menu" "top-menu top-menu top-menu top-menu top-menu top-menu" "top-menu top-menu top-menu top-menu top-menu top-menu" "top-menu top-menu top-menu top-menu top-menu top-menu" "nav-bar nav-bar nav-bar nav-bar nav-bar nav-bar";
 }
 
 .top-menu {
   grid-area: top-menu;
-  background: url("./../img/black and white diamond pattern_204025b2.jpg");
-  /*background-color: rgba(52, 52, 52, 0.76);*/
+  background: url("./../img/photo-1506316940527-4d1c138978a0.jpg");
+  background-color: rgba(52, 52, 52, 0.76);
   background-size: 100% 100%;
 }
 .top-menu .site-logo img {
@@ -62,7 +66,7 @@ button:focus {
   justify-content: flex-end;
   align-content: start;
   margin-right: 10px;
-  background: black;
+  background: transparent;
 }
 
 .top-menu.items.links a, .nav-bar.menu-items-left a {
@@ -120,6 +124,9 @@ button:focus {
 .nav-bar #cart-icon, .nav-bar #wishlist-icon {
   color: whitesmoke;
   position: relative;
+}
+.nav-bar #cart-icon a, .nav-bar #wishlist-icon a {
+  padding: 0;
 }
 .nav-bar #cart-icon::before, .nav-bar #wishlist-icon::before {
   content: "";

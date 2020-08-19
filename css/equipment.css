@@ -12,6 +12,10 @@ ul li, a {
   user-select: none;
 }
 
+.products-template .tile a {
+  padding: 0;
+}
+
 /*Mixins*/
 /*Slide-in buttons*/
 /*Product style*/
@@ -175,6 +179,10 @@ ul li, a {
   user-select: none;
 }
 
+.products-template .tile a {
+  padding: 0;
+}
+
 /*Mixins*/
 /*Slide-in buttons*/
 /*Product style*/
@@ -213,6 +221,10 @@ ul li, a {
   user-select: none;
 }
 
+.products-template .tile a {
+  padding: 0;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Open Sans Semibold", sans-serif;
@@ -225,6 +237,10 @@ ul li, a {
   text-decoration: none;
   padding: 18px;
   user-select: none;
+}
+
+.products-template .tile a {
+  padding: 0;
 }
 
 /*Mixins*/
@@ -452,7 +468,7 @@ img {
   object-fit: contain;
   width: 80%;
   height: 80%;
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 #cart-icon img, #wishlist-icon img {

@@ -12,6 +12,10 @@ ul li, a {
   user-select: none;
 }
 
+.products-template .tile a {
+  padding: 0;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Open Sans Semibold", sans-serif;
@@ -24,6 +28,10 @@ ul li, a {
   text-decoration: none;
   padding: 18px;
   user-select: none;
+}
+
+.products-template .tile a {
+  padding: 0;
 }
 
 /*Mixins*/

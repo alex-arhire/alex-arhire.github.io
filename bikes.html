@@ -25,18 +25,18 @@
             <h2>Display Options:</h2>
             <select id="sort-options" value="">
                 <option value data-isdefault="true">Sort by...</option>
-                <optgroup label="Model">
-                    <option>Newest models</option>
-                    <option>Oldest models</option>
+                <optgroup label="Alphabetically">
+                    <option id="ascending">A - Z</option>
+                    <option id="descending">Z - A</option>
                 </optgroup>
                 <optgroup label="Price">
-                    <option>Highest to lowest</option>
-                    <option>Lowest to highest</option>
+                    <option id="highest">Highest to lowest</option>
+                    <option id="lowest">Lowest to highest</option>
                 </optgroup>
-                <optgroup label="Rating">
+                <!--<optgroup label="Rating">
                     <option>Highest rating</option>
                     <option>Lowest rating</option>
-                </optgroup>
+                </optgroup>-->
             </select>
             <select id="items-no">
                 <option value data-isdefault="true">Items/page</option>

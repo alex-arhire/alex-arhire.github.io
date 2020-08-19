@@ -42,7 +42,7 @@ productsRouter.get("/equipment", function (request, response) {
         );
         response.send(searched);
     } else {
-        response.send(equipList)
+        response.send(equipList);
     }
 });
 

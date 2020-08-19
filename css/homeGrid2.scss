@@ -18,7 +18,7 @@
   "mid-sec-equip1 mid-sec-equip1 mid-sec-equip2 mid-sec-equip2 mid-sec-equip3 mid-sec-equip3"
   "mid-sec-parts1 mid-sec-parts1 mid-sec-parts2 mid-sec-parts2 mid-sec-parts3 mid-sec-parts3"
   "mag1-img mag1-img mag1-img mag1-text mag1-text mag1-text"
-  "mag2-text mag2-text mag2-text mag2-img mag2-img mag2-img"
+  "mag2-text mag2-text mag2-text mag2-img mag2-img mag2-img";
 }
 
 button {
@@ -115,6 +115,9 @@ img {
   flex-direction: column;
   align-items: center;
   @include buttonSlide(black);
+  border: 1px solid lightgray;
+  margin: 20px;
+
 }
 
 .mid-sec-bike-slot a, span {
@@ -213,6 +216,8 @@ img {
   flex-direction: column;
   align-items: center;
   @include buttonSlide(black);
+  border: 1px solid lightgray;
+  margin: 20px;
 }
 
 .mid-sec-bike-slot a, .mid-sec-equip a, .mid-sec-parts a {

@@ -12,6 +12,10 @@ ul li, a {
   user-select: none;
 }
 
+.products-template .tile a {
+  padding: 0;
+}
+
 /*Mixins*/
 /*Slide-in buttons*/
 /*Product style*/
@@ -146,6 +150,8 @@ img {
   display: grid;
   justify-items: center;
   position: relative;
+  border: 1px solid lightgray;
+  margin: 20px;
 }
 .mid-sec-bike-slot button:hover {
   background-color: #fc5500;
@@ -282,6 +288,8 @@ img {
   display: grid;
   justify-items: center;
   position: relative;
+  border: 1px solid lightgray;
+  margin: 20px;
 }
 .mid-sec-equip button:hover, .mid-sec-parts button:hover {
   background-color: #fc5500;

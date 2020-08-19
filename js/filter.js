@@ -1,62 +1,5 @@
 import MethodHandler, {RenderProducts} from "./methodHandler.js";
 
-/**Search function**/
-
-/*function sendRequest(lookupValue) {
-    return fetch(`http://localhost:3000/bikes?search=${lookupValue}`, {
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-        },
-    }).then(r => r.json());
-}*/
-
-/*var searchInput = document.getElementById('search');
-searchInput.addEventListener('keydown', event => {
-    event.preventDefault();
-    /!*const search = new MethodHandler(`http://localhost:3000/bikes${searchInput.value}`, 'GET', null);
-    search.then(populateProducts);*!/
-    setTimeout(function () {
-
-    sendRequest(searchInput.value).then(populateProducts);
-    }, 2000);
-});*/
-
-/*function populateProducts(products = []) {
-    products.forEach(object => {
-        var div = document.createElement('div');
-        div.className = 'tile';
-        div.id = object.id;
-
-        var img = document.createElement('img');
-        img.src = object.img;
-        div.appendChild(img);
-
-        var a = document.createElement('a');
-        a.textContent = object["prod-name"];
-        a.href = '#';
-        div.appendChild(a);
-
-        var price = document.createElement('span');
-        price.textContent = object.price;
-        price.className = 'prod-price';
-        div.appendChild(price);
-
-        var buttonCart = document.createElement('button');
-        buttonCart.className = 'cart';
-        buttonCart.textContent = 'Add to Cart';
-        div.appendChild(buttonCart);
-
-        var buttonWishlist = document.createElement('button');
-        buttonWishlist.className = 'wishlist';
-        buttonWishlist.textContent = 'Add to Wishlist';
-        div.appendChild(buttonWishlist);
-
-        document.querySelector('.products-template').appendChild(div);
-    });
-}*/
-
 /**Function for handling product filtering**/
 const productsToFilter = document.querySelector('.products-template');
 
@@ -70,32 +13,81 @@ function check() {
         resetList.render();
     }
 }
-
+let activeFilters = [];
 function filter(event) {
     productsToFilter.innerHTML = '';
-    const FILTERED_PROD = FROM_STORAGE.filter(item => {
-        return event.target.value === item[event.target.className];
-    });
+    let result = FROM_STORAGE;
     if (event.target.checked) {
-        filteredArray.push({type: event.target.value, products: FILTERED_PROD});
-        render(filteredArray);
+        if (activeFilters.length === 0) {
+            activeFilters.push({type: event.target.className, value: [event.target.value]});
+            console.log(activeFilters);
+        } else {
+            let filter = activeFilters.find(filter => filter.type === event.target.className);
+            if (filter) {
+                filter.value.push(event.target.value);
+            } else {
+                activeFilters.push({type: event.target.className, value: [event.target.value]});
+                console.log(activeFilters);
+            }
+        }
     } else {
-        filteredArray = filteredArray.filter(item => item.type !== event.target.value);
-        render(filteredArray);
+        activeFilters = activeFilters.filter(item => item.type !== event.target.value);
     }
-}
-
-function render(list) {
-    list.forEach(item => {
-        const newList = new RenderProducts(item.products, productsToFilter);
-        newList.render();
+    activeFilters.forEach(activeFilter => {
+        result = result.filter(prod => {
+            return activeFilter.value.indexOf(prod[activeFilter.type]) > -1
+        });
+    });
+    return Promise.resolve(result).then(function (response) {
+        const renderList = new RenderProducts(response, productsToFilter);
+        renderList.render();
     });
 }
 
 checkboxItems.forEach(checkbox => {
     checkbox.addEventListener('click', function (event) {
-        filter(event);
-        check();
+        filter(event).then(check);
     })
 });
+
+/**Sorting function**/
+let sortDropdown = document.getElementById('sort-options');
+
+function sortItems(event) {
+    // let items = Array.from(document.querySelectorAll('.tile'));
+    let items = document.querySelectorAll('.tile');
+    let sortedList = [];
+    switch (event.target.id) {
+        case "ascending":
+            sortedList = filteredArray[0]['products'].sort(function (a, b) {
+                return a['prod-name'] > b['prod-name'];
+            });
+            let displaySortedByName = new RenderProducts(sortedList, productsToFilter);
+            displaySortedByName.render();
+            break;
+        case "descending":
+            sortedList = filteredArray[0]['products'].sort(function (a, b) {
+                return a['prod-name'] < b['prod-name'];
+            });
+            let displaySortedByNameReversed = new RenderProducts(sortedList, productsToFilter);
+            displaySortedByNameReversed.render();
+            break;
+        case "highest":
+            sortedList = filteredArray[0]['products'].sort(function (a, b) {
+                return a.price < b.price;
+            });
+            let displaySortedByHighestPrice = new RenderProducts(sortedList, productsToFilter);
+            displaySortedByHighestPrice.render();
+            break;
+        case "lowest":
+            sortedList = filteredArray[0]['products'].sort(function (a, b) {
+                return a.price > b.price;
+            });
+            let displaySortedByLowestPrice = new RenderProducts(sortedList, productsToFilter);
+            displaySortedByLowestPrice.render();
+            break;
+    }
+}
+
+sortDropdown.addEventListener('click', sortItems);
 

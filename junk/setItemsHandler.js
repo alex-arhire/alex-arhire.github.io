@@ -45,7 +45,7 @@ function distributeItems(event) {
                 let detailsStorage = JSON.parse(localStorage.getItem("prodForDetails")) || [];
                 detailsStorage = items;
                 localStorage.setItem("prodForDetails", JSON.stringify(detailsStorage));
-                window.location.href = 'http://localhost:8080/productDetails.html';
+                window.location.href = '../productDetails.html';
             }
         });
     }

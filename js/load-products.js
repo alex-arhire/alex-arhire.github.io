@@ -1,27 +1,28 @@
 /**Imports**/
-import MethodHandler, {RenderProducts, search} from './methodHandler.js';
+import MethodHandler, {RenderProducts, search} from './method-handler.js';
 
 /**Checking page location**/
 let container;
+let location = window.location.href;
 
 function checkLocation() {
-    switch (window.location.href) {
-        case "http://localhost:8080/bikes.html":
+    switch (true) {
+        case location === "http://localhost:8080/bikes.html":
             container = document.querySelector('.products-template');
             break;
-        case "http://localhost:8080/equipment.html":
+        case location === "http://localhost:8080/equipment.html":
             container = document.querySelector('.products-template');
             break;
-        case "http://localhost:8080/components.html":
+        case location === "http://localhost:8080/components.html":
             container = document.querySelector('.products-template');
             break;
-        case "http://localhost:8080/homeGrid2.html":
+        case location === "http://localhost:8080/home.html":
             container = document.querySelector('.home-page-container');
             break;
-        case "http://localhost:8080/productDetails.html":
+        case location.includes('http://localhost:8080/productDetails.html'):
             container = document.querySelector('.text-details');
             break;
-        case "http://localhost:8080/wishlist.html":
+        case location === "http://localhost:8080/wishlist.html":
             container = document.querySelector('.prod-table');
             break;
         default:
@@ -63,15 +64,17 @@ switch (window.location.href) {
 }
 
 /**Function that handles adding to cart/wishlist from products, product details, home and wishlist pages**/
+const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
+
 function addProducts() {
     /**Searching for existing products in LOCAL STORAGE**/
-    const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
     container.addEventListener('click', event => {
         event.preventDefault();
         if (event.target.classList.contains('cart')) {
             FROM_STORAGE.forEach(obj => {
                 let parsedID;
-                if (window.location.href === 'http://localhost:8080/productDetails.html') {
+                if (window.location.href.indexOf('http://localhost:8080/productDetails.html') > -1) {
+                    console.log(window.location.href);
                     parsedID = parseInt(event.target.parentNode.parentNode.parentNode.parentNode.getAttribute('id'), 10);
                 } else {
                     parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
@@ -150,9 +153,9 @@ addProducts();
 if (window.location.href === "http://localhost:8080/bikes.html" || window.location.href === "http://localhost:8080/equipment.html" || window.location.href === "http://localhost:8080/components.html") {
     container.addEventListener('click', event => {
         /**Searching for existing products in LOCAL STORAGE**/
-        const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
+        // const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
         if (event.target.tagName.includes('IMG') || event.target.tagName.includes('A') || event.target.tagName.includes('SPAN')) {
-            FROM_STORAGE.forEach(obj => {
+            /*FROM_STORAGE.forEach(obj => {
                 let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
                 if (parsedID === obj.id) {
                     let items = {
@@ -167,7 +170,9 @@ if (window.location.href === "http://localhost:8080/bikes.html" || window.locati
                     localStorage.setItem("prodForDetails", JSON.stringify(detailsStorage));
                     window.location.href = 'http://localhost:8080/productDetails.html';
                 }
-            });
+            });*/
+            let prodID = parseInt(event.target.parentNode.getAttribute('id'), 10);
+            window.location.href = `http://localhost:8080/productDetails.html?prodID=${prodID}`;
         }
     });
 }

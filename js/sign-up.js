@@ -23,7 +23,7 @@ signUpForm.addEventListener('submit', function (event) {
         .then(response => response.json())
         .then(data => {
             sessionStorage.setItem('token', data.token);
-            window.location.assign('http://localhost:8080/homeGrid2.html');
+            window.location.assign('http://localhost:8080/home.html');
         })
 });
 

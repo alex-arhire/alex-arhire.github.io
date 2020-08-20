@@ -24,7 +24,7 @@
         <section class="display-options">
             <h2>Display Options:</h2>
             <select id="sort-options" value="">
-                <option value data-isdefault="true">Sort by...</option>
+                <option id="reset-sort" value data-isdefault="true">Sort by...</option>
                 <optgroup label="Alphabetically">
                     <option id="ascending">A - Z</option>
                     <option id="descending">Z - A</option>
@@ -78,8 +78,8 @@
     </form>
     <div class="bikes-footer"></div>
 </div>
-<script src="./js/loadDataFromJSON.js" type="text/javascript"></script>
-<script src="./js/loadProducts.js" type="module"></script>
-<script src="./js/filter.js" type="module"></script>
+<script src="./js/load-data-from-JSON.js" type="text/javascript"></script>
+<script src="./js/load-products.js" type="module"></script>
+<script src="./js/filter-sort.js" type="module"></script>
 </body>
 </html>

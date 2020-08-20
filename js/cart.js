@@ -1,5 +1,5 @@
 /**Imports**/
-import MethodHandler from './methodHandler.js';
+import MethodHandler from './method-handler.js';
 
 /**Rendering the DOM elements**/
 const tableItems = document.querySelector('.prod-table > tbody');

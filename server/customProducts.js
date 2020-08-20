@@ -24,7 +24,7 @@ var wishlist = [];
 /**GET handlers**/
 productsRouter.get("/bikes", function (request, response) {
     if (request.query.search !== "undefined") {
-        var searched = prodList.filter(prod =>
+        let searched = prodList.filter(prod =>
                 // [...prod["prod-name"], ...prod.category, ...prod["frame-size"], ...prod["wheel-size"], ...prod.suspension].includes(request.query.search)
             prod["prod-name"].concat(prod.category).includes(request.query.search)
         );
@@ -34,6 +34,22 @@ productsRouter.get("/bikes", function (request, response) {
         response.send(prodList)
     }
 });
+
+productsRouter.get("/productDetails", function (request, response) {
+    if (request.query.search !== "undefined") {
+        let prod = prodList.filter(prod => prod.id == request.query.search
+        );
+        response.send(prod);
+    } else {
+        response.send(prodList)
+    }
+});
+
+/*
+productsRouter.get("/productDetailsTest", function (request, response) {
+    console.log(request.query);
+});
+*/
 
 productsRouter.get("/equipment", function (request, response) {
     if (request.query.search !== "undefined") {

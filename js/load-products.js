@@ -64,11 +64,11 @@ switch (window.location.href) {
 }
 
 /**Function that handles adding to cart/wishlist from products, product details, home and wishlist pages**/
-const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
 
 function addProducts() {
     /**Searching for existing products in LOCAL STORAGE**/
     container.addEventListener('click', event => {
+        const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
         event.preventDefault();
         if (event.target.classList.contains('cart')) {
             FROM_STORAGE.forEach(obj => {

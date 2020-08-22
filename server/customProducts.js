@@ -36,12 +36,14 @@ productsRouter.get("/bikes", function (request, response) {
 });
 
 productsRouter.get("/productDetails", function (request, response) {
+    let list = [...prodList, ...equipList, ...compList];
     if (request.query.search !== "undefined") {
-        let prod = prodList.filter(prod => prod.id == request.query.search
+        let prod = list.filter(prod => prod.id == request.query.search
         );
+        console.log(prod);
         response.send(prod);
     } else {
-        response.send(prodList)
+        response.send(list);
     }
 });
 

@@ -35,9 +35,10 @@ function loadProducts() {
         title.innerText = STORAGE.title;
         price.innerText = STORAGE.price;
         desc.innerText = STORAGE.description;*/
-    let prodId = window.location.search.slice(-1);
+    // let prodId = window.location.search.slice(42);
+    let prodId = window.location.search.match(/\d+/g);
+    console.log(prodId);
     sendRequest(prodId).then(response => {
-        console.log(response);
         detailsContainer.setAttribute('id', response[0].id);
         image.src = response[0].img;
         title.innerText = response[0]["prod-name"];

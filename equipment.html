@@ -21,21 +21,23 @@
 <div class="grid-container prod-wrapper">
     <div class="header-nav"></div>
     <form class="bikes-container">
-        <select id="sort-options" value="">
-            <option id="reset-sort" value data-isdefault="true">Sort by...</option>
-            <optgroup label="Alphabetically">
-                <option id="ascending">A - Z</option>
-                <option id="descending">Z - A</option>
-            </optgroup>
-            <optgroup label="Price">
-                <option id="highest">Highest to lowest</option>
-                <option id="lowest">Lowest to highest</option>
-            </optgroup>
-            <!--<optgroup label="Rating">
-                <option>Highest rating</option>
-                <option>Lowest rating</option>
-            </optgroup>-->
-        </select>
+        <section class="display-options">
+            <h2>Display Options:</h2>
+            <select id="sort-options" value="">
+                <option id="reset-sort" value data-isdefault="true">Sort by...</option>
+                <optgroup label="Alphabetically">
+                    <option id="ascending">A - Z</option>
+                    <option id="descending">Z - A</option>
+                </optgroup>
+                <optgroup label="Price">
+                    <option id="highest">Highest to lowest</option>
+                    <option id="lowest">Lowest to highest</option>
+                </optgroup>
+                <!--<optgroup label="Rating">
+                    <option>Highest rating</option>
+                    <option>Lowest rating</option>
+                </optgroup>-->
+            </select>
             <select id="items-no">
                 <option value data-isdefault="true">Items/page</option>
                 <option>3 items/page</option>

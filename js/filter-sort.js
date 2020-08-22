@@ -16,7 +16,8 @@ function check() {
 }
 
 let activeFilters = [];
-
+console.log(filteredArray);
+console.log(activeFilters);
 function filterSort(event) {
     productsToFilter.innerHTML = '';
     let result = FROM_STORAGE;
@@ -35,11 +36,9 @@ function filterSort(event) {
         activeFilters.forEach(filter => {
             if (filter.value.length === 0) {
                 activeFilters = activeFilters.filter(item => item.value.length !== 0);
-                console.log('value is empty');
             } else {
                 activeFilters = activeFilters.filter(filter => {
                     filter.value = filter.value.filter(item => item !== event.target.value);
-                    console.log('value is not empty');
                     return filter.value;
                 });
             }

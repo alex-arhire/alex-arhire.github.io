@@ -166,3 +166,26 @@ tableItems.addEventListener('change', event => {
     }
 });
 
+/**Finish checkout**/
+let checkoutBtn = document.getElementById('checkout');
+let cartContainer = document.querySelector('.shop-cart');
+function checkedOut() {
+    cartContainer.innerHTML = "Thank you for placing an order with us. A confirmation email will be sent to you shortly.";
+    localStorage.removeItem('prodForCart');
+}
+checkoutBtn.addEventListener('click', function () {
+    checkedOut();
+    cartItems();
+});
+
+/**Empty cart**/
+function emptyCart() {
+    const cart = new MethodHandler("http://localhost:3000/cart");
+    cart.sendRequest().then(function (response) {
+        if (response.length === 0) {
+            cartContainer.innerHTML = "There are currently no items in your shopping cart.";
+        }
+    })
+}
+
+document.addEventListener('DOMContentLoaded', emptyCart);

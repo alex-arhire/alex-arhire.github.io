@@ -2,6 +2,10 @@
   {
     "id": 101,
     "img": "./../img/Equip&Comp/526855_4376102.jpg",
+    "img1": "./../img/Equip&Comp/526855_4376102.jpg",
+    "img2": "./../img/Equip&Comp/424716_3781348.jpg",
+    "img3": "./../img/Equip&Comp/461414_4013189.jpg",
+    "img4": "./../img/Equip&Comp/helmBell.jpg",
     "prod-name": "Bell Super DH MIPS",
     "price": "$250.00",
     "stock": "In Stock",
@@ -15,11 +19,15 @@
       "grey"
     ],
     "size": "small",
-    "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
+    "description": " The helmet impresses with its Fidlock® Safety aluminium magnetic closure for playful opening and closing, even with gloves."
   },
   {
     "id": 102,
     "img": "./../img/Equip&Comp/461414_4013189.jpg",
+    "img1": "./../img/Equip&Comp/526855_4376102.jpg",
+    "img2": "./../img/Equip&Comp/424716_3781348.jpg",
+    "img3": "./../img/Equip&Comp/461414_4013189.jpg",
+    "img4": "./../img/Equip&Comp/helmBell.jpg",
     "prod-name": "Fox Head Rampage Comp Reno",
     "price": "$140.00",
     "stock": "In Stock",
@@ -33,11 +41,15 @@
       "grey"
     ],
     "size": "medium",
-    "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
+    "description": " The helmet impresses with its Fidlock® Safety aluminium magnetic closure for playful opening and closing, even with gloves."
   },
   {
     "id": 103,
     "img": "./../img/Equip&Comp/424716_3781348.jpg",
+    "img1": "./../img/Equip&Comp/526855_4376102.jpg",
+    "img2": "./../img/Equip&Comp/424716_3781348.jpg",
+    "img3": "./../img/Equip&Comp/461414_4013189.jpg",
+    "img4": "./../img/Equip&Comp/helmBell.jpg",
     "prod-name": "O'Neal Fury RL Hybrid",
     "price": "$250.00",
     "stock": "In Stock",
@@ -51,11 +63,15 @@
       "grey"
     ],
     "size": "large",
-    "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
+    "description": " The helmet impresses with its Fidlock® Safety aluminium magnetic closure for playful opening and closing, even with gloves."
   },
   {
     "id": 104,
     "img": "./../img/Equip&Comp/566549_4647519.jpg",
+    "img1": "./../img/Equip&Comp/566549_4647519.jpg",
+    "img2": "./../img/Equip&Comp/545237_4521368.jpg",
+    "img3": "./../img/Equip&Comp/100-jersey-r-core-1.jpg",
+    "img4": "./../img/Equip&Comp/424161_3781310.jpg",
     "prod-name": "100% R-Core SS19",
     "price": "$30.00",
     "stock": "In Stock",
@@ -69,11 +85,15 @@
       "grey"
     ],
     "size": "small",
-    "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
+    "description": "The Drirelease® Long Sleeve Jersey has a soft feel and relaxed fit which conceals advanced moisture-wicking technology. It keeps you comfortable on the trail while providing the comfort of your favorite tee."
   },
   {
     "id": 105,
     "img": "./../img/Equip&Comp/424161_3781310.jpg",
+    "img1": "./../img/Equip&Comp/566549_4647519.jpg",
+    "img2": "./../img/Equip&Comp/545237_4521368.jpg",
+    "img3": "./../img/Equip&Comp/100-jersey-r-core-1.jpg",
+    "img4": "./../img/Equip&Comp/424161_3781310.jpg",
     "prod-name": "O'Neal Matrix",
     "price": "$45.00",
     "stock": "In Stock",
@@ -87,11 +107,15 @@
       "grey"
     ],
     "size": "medium",
-    "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
+    "description": "The Drirelease® Long Sleeve Jersey has a soft feel and relaxed fit which conceals advanced moisture-wicking technology. It keeps you comfortable on the trail while providing the comfort of your favorite tee."
   },
   {
     "id": 106,
     "img": "./../img/Equip&Comp/545237_4521368.jpg",
+    "img1": "./../img/Equip&Comp/566549_4647519.jpg",
+    "img2": "./../img/Equip&Comp/545237_4521368.jpg",
+    "img3": "./../img/Equip&Comp/100-jersey-r-core-1.jpg",
+    "img4": "./../img/Equip&Comp/424161_3781310.jpg",
     "prod-name": "Fox Head Ranger",
     "price": "$59.00",
     "stock": "In Stock",
@@ -105,11 +129,15 @@
       "grey"
     ],
     "size": "large",
-    "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
+    "description": "The Drirelease® Long Sleeve Jersey has a soft feel and relaxed fit which conceals advanced moisture-wicking technology. It keeps you comfortable on the trail while providing the comfort of your favorite tee."
   },
   {
     "id": 107,
     "img": "./../img/Equip&Comp/501158_4249444.jpg",
+    "img1": "./../img/Equip&Comp/501158_4249444.jpg",
+    "img2": "./../img/Equip&Comp/522388_4349923.jpg",
+    "img3": "./../img/Equip&Comp/fox-racing-defend-glove-gloves.jpg",
+    "img4": "./../img/Equip&Comp/442763_3804004.jpg",
     "prod-name": "Fox Racing Defend",
     "price": "$25.00",
     "stock": "In Stock",
@@ -123,11 +151,15 @@
       "grey"
     ],
     "size": "small",
-    "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
+    "description": "Lightweight and stylish MTB gloves with high wearing comfort. With longer waistband and Velcro closure as well as ventilated Nanofront® hand section for an unrestricted feeling and full control with high durability at the same time."
   },
   {
     "id": 108,
     "img": "./../img/Equip&Comp/548017_4507878.jpg",
+    "img1": "./../img/Equip&Comp/501158_4249444.jpg",
+    "img2": "./../img/Equip&Comp/522388_4349923.jpg",
+    "img3": "./../img/Equip&Comp/fox-racing-defend-glove-gloves.jpg",
+    "img4": "./../img/Equip&Comp/442763_3804004.jpg",
     "prod-name": "100% Celium",
     "price": "$29.00",
     "stock": "In Stock",
@@ -141,11 +173,15 @@
       "grey"
     ],
     "size": "medium",
-    "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
+    "description": "Lightweight and stylish MTB gloves with high wearing comfort. With longer waistband and Velcro closure as well as ventilated Nanofront® hand section for an unrestricted feeling and full control with high durability at the same time."
   },
   {
     "id": 109,
     "img": "./../img/Equip&Comp/522388_4349923.jpg",
+    "img1": "./../img/Equip&Comp/501158_4249444.jpg",
+    "img2": "./../img/Equip&Comp/522388_4349923.jpg",
+    "img3": "./../img/Equip&Comp/fox-racing-defend-glove-gloves.jpg",
+    "img4": "./../img/Equip&Comp/442763_3804004.jpg",
     "prod-name": "O'Neal Revolution",
     "price": "$34.99",
     "stock": "In Stock",
@@ -159,6 +195,6 @@
       "grey"
     ],
     "size": "large",
-    "description": "Master technical XC terrain with speed, efficiency and control. This 29er with the latest Maestro suspension technology is perfect for XC racing, marathons or epic days on the trail."
+    "description": "Lightweight and stylish MTB gloves with high wearing comfort by O´Neil. With longer waistband and Velcro closure as well as ventilated Nanofront® hand section for an unrestricted feeling and full control with high durability at the same time."
   }
 ]

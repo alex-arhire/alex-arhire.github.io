@@ -16,8 +16,7 @@ function check() {
 }
 
 let activeFilters = [];
-console.log(filteredArray);
-console.log(activeFilters);
+
 function filterSort(event) {
     productsToFilter.innerHTML = '';
     let result = FROM_STORAGE;

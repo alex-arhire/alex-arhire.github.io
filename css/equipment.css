@@ -73,6 +73,52 @@ button:focus {
   position: absolute;
   font-size: 14px;
 }
+.products-template .tile .cart:before,
+.products-template .tile .wishlist:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+  filter: blur(30px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.products-template .tile .cart:after,
+.products-template .tile .wishlist:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.products-template .tile .cart:focus,
+.products-template .tile .wishlist:focus {
+  transition: background-color 1s ease;
+  background-color: #00bcd4;
+  cursor: pointer;
+}
+.products-template .tile .cart:focus:before,
+.products-template .tile .wishlist:focus:before {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  transition: 0.7s;
+}
+.products-template .tile .cart:focus:after,
+.products-template .tile .wishlist:focus:after {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  transition: 0.7s;
+}
 @keyframes slide-left {
   from {
     transform: translateX(-100%);
@@ -299,6 +345,52 @@ button:focus {
   opacity: 0;
   position: absolute;
   font-size: 14px;
+}
+.products-template .tile .cart:before,
+.products-template .tile .wishlist:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+  filter: blur(30px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.products-template .tile .cart:after,
+.products-template .tile .wishlist:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.products-template .tile .cart:focus,
+.products-template .tile .wishlist:focus {
+  transition: background-color 1s ease;
+  background-color: #00bcd4;
+  cursor: pointer;
+}
+.products-template .tile .cart:focus:before,
+.products-template .tile .wishlist:focus:before {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  transition: 0.7s;
+}
+.products-template .tile .cart:focus:after,
+.products-template .tile .wishlist:focus:after {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  transition: 0.7s;
 }
 @keyframes slide-left {
   from {

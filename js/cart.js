@@ -169,10 +169,14 @@ tableItems.addEventListener('change', event => {
 /**Finish checkout**/
 let checkoutBtn = document.getElementById('checkout');
 let cartContainer = document.querySelector('.shop-cart');
+
 function checkedOut() {
+    const checkout = new MethodHandler('http://localhost:3000/cart', 'POST', JSON.stringify({}));
+    checkout.sendRequest();
     cartContainer.innerHTML = "Thank you for placing an order with us. A confirmation email will be sent to you shortly.";
     localStorage.removeItem('prodForCart');
 }
+
 checkoutBtn.addEventListener('click', function () {
     checkedOut();
     cartItems();
@@ -189,3 +193,5 @@ function emptyCart() {
 }
 
 document.addEventListener('DOMContentLoaded', emptyCart);
+
+

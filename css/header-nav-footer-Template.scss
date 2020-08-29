@@ -25,6 +25,7 @@ $cartContent: '0';
     background: url("./../img/photo-1506316940527-4d1c138978a0.jpg");
     background-color: rgba(52, 52, 52, 0.76);
     background-size: 100% 100%;
+    position: relative;
 
     .site-logo img {
         float: left;
@@ -40,6 +41,17 @@ $cartContent: '0';
         margin-right: 10px;
         background: transparent;
     }
+}
+
+.text-slider {
+    position: absolute;
+    color: white;
+    top: 30%;
+    left: 5%;
+    font-size: 24px;
+    width: 50%;
+    background-color: black;
+
 }
 
 .top-menu.items.links a, .nav-bar.menu-items-left a {

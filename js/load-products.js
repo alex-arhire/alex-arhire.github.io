@@ -73,7 +73,7 @@ function addProducts() {
         if (event.target.classList.contains('cart')) {
             FROM_STORAGE.forEach(obj => {
                 let parsedID;
-                if (window.location.href.indexOf('http://localhost:8080/productDetails.html') > -1) {
+                if (window.location.href.includes('http://localhost:8080/productDetails.html')) {
                     console.log(window.location.href);
                     parsedID = parseInt(event.target.parentNode.parentNode.parentNode.parentNode.getAttribute('id'), 10);
                 } else {
@@ -83,10 +83,10 @@ function addProducts() {
                     let cartStorage = JSON.parse(localStorage.getItem("prodForCart")) || [];
                     let product = cartStorage.find(p => p.id === parsedID);
                     if (product) {
-                        const cartHandler = new MethodHandler(`http://localhost:3000/cart/${parsedID}`, 'PATCH', JSON.stringify({
+                        /*const cartHandler = new MethodHandler(`http://localhost:3000/cart/${parsedID}`, 'PATCH', JSON.stringify({
                             quantity: 1,
                         }));
-                        cartHandler.sendRequest();
+                        cartHandler.sendRequest();*/
                         console.log(document.querySelector('.pop-up'));
                         document.querySelector('.pop-up').style.display = 'initial';
                         setTimeout(function () {
@@ -110,7 +110,7 @@ function addProducts() {
         } else if (event.target.classList.contains('wishlist')) {
             FROM_STORAGE.forEach(obj => {
                 let parsedID;
-                if (window.location.href === 'http://localhost:8080/productDetails.html') {
+                if (window.location.href.includes('http://localhost:8080/productDetails.html')) {
                     console.log(event.target);
                     parsedID = parseInt(event.target.parentNode.parentNode.parentNode.parentNode.getAttribute('id'), 10);
                 } else {
@@ -120,14 +120,14 @@ function addProducts() {
                     let wishlistStorage = JSON.parse(localStorage.getItem("prodForWishlist")) || [];
                     let product = wishlistStorage.find(p => p.id === parsedID);
                     if (product) {
-                        const wishlistStorage = new MethodHandler(`http://localhost:3000/cart/${parsedID}`, 'PATCH', JSON.stringify({
+                        /*const wishlistStorage = new MethodHandler(`http://localhost:3000/cart/${parsedID}`, 'PATCH', JSON.stringify({
                             quantity: 1,
-                        }));
+                        }));*/
+                        // wishlistStorage.sendRequest();
                         document.querySelector('.pop-up2').style.display = 'initial';
                         setTimeout(function () {
                             document.querySelector('.pop-up2').style.display = 'none';
                         }, 4000);
-                        wishlistStorage.sendRequest();
                     } else {
                         const wishlistHandler = new MethodHandler("http://localhost:3000/wishlist", 'POST', JSON.stringify({
                                 id: obj.id,
@@ -153,26 +153,17 @@ addProducts();
 if (window.location.href === "http://localhost:8080/bikes.html" || window.location.href === "http://localhost:8080/equipment.html" || window.location.href === "http://localhost:8080/components.html") {
     container.addEventListener('click', event => {
         /**Searching for existing products in LOCAL STORAGE**/
-        // const FROM_STORAGE = JSON.parse(localStorage.getItem('productsForStorage'));
         if (event.target.tagName.includes('IMG') || event.target.tagName.includes('A') || event.target.tagName.includes('SPAN')) {
-            /*FROM_STORAGE.forEach(obj => {
-                let parsedID = parseInt(event.target.parentNode.getAttribute('id'), 10);
-                if (parsedID === obj.id) {
-                    let items = {
-                        id: obj.id,
-                        image: obj.img,
-                        title: obj["prod-name"],
-                        price: obj.price,
-                        description: obj.description
-                    };
-                    let detailsStorage = JSON.parse(localStorage.getItem("prodForDetails")) || [];
-                    detailsStorage = items;
-                    localStorage.setItem("prodForDetails", JSON.stringify(detailsStorage));
-                    window.location.href = 'http://localhost:8080/productDetails.html';
-                }
-            });*/
             let prodID = parseInt(event.target.parentNode.getAttribute('id'), 10);
             window.location.href = `http://localhost:8080/productDetails.html?prodID=${prodID}`;
         }
     });
 }
+
+/**Set focus**/
+document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+        console.log(document.querySelector(".filters"));
+        document.querySelector(".filters").focus();
+    }, 1000);
+});

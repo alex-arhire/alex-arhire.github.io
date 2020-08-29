@@ -169,6 +169,52 @@ img {
   position: absolute;
   font-size: 14px;
 }
+.mid-sec-bike-slot .cart:before,
+.mid-sec-bike-slot .wishlist:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+  filter: blur(30px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.mid-sec-bike-slot .cart:after,
+.mid-sec-bike-slot .wishlist:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.mid-sec-bike-slot .cart:focus,
+.mid-sec-bike-slot .wishlist:focus {
+  transition: background-color 1s ease;
+  background-color: #00bcd4;
+  cursor: pointer;
+}
+.mid-sec-bike-slot .cart:focus:before,
+.mid-sec-bike-slot .wishlist:focus:before {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  transition: 0.7s;
+}
+.mid-sec-bike-slot .cart:focus:after,
+.mid-sec-bike-slot .wishlist:focus:after {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  transition: 0.7s;
+}
 @keyframes slide-left {
   from {
     transform: translateX(-100%);
@@ -307,6 +353,57 @@ img {
   opacity: 0;
   position: absolute;
   font-size: 14px;
+}
+.mid-sec-equip .cart:before,
+.mid-sec-equip .wishlist:before, .mid-sec-parts .cart:before,
+.mid-sec-parts .wishlist:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+  filter: blur(30px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.mid-sec-equip .cart:after,
+.mid-sec-equip .wishlist:after, .mid-sec-parts .cart:after,
+.mid-sec-parts .wishlist:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.mid-sec-equip .cart:focus,
+.mid-sec-equip .wishlist:focus, .mid-sec-parts .cart:focus,
+.mid-sec-parts .wishlist:focus {
+  transition: background-color 1s ease;
+  background-color: #00bcd4;
+  cursor: pointer;
+}
+.mid-sec-equip .cart:focus:before,
+.mid-sec-equip .wishlist:focus:before, .mid-sec-parts .cart:focus:before,
+.mid-sec-parts .wishlist:focus:before {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  transition: 0.7s;
+}
+.mid-sec-equip .cart:focus:after,
+.mid-sec-equip .wishlist:focus:after, .mid-sec-parts .cart:focus:after,
+.mid-sec-parts .wishlist:focus:after {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  transition: 0.7s;
 }
 @keyframes slide-left {
   from {

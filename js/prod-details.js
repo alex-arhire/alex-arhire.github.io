@@ -5,6 +5,10 @@
 // const STORAGE = JSON.parse(localStorage.getItem(('prodForDetails')));
 
 var image = document.getElementById('image1');
+var slideImage1 = document.getElementById('slide-image1');
+var slideImage2 = document.getElementById('slide-image2');
+var slideImage3 = document.getElementById('slide-image3');
+var slideImage4 = document.getElementById('slide-image4');
 var title = document.querySelector('.prod-title');
 var price = document.querySelector('.prod-price');
 var desc = document.getElementById('prod-description');
@@ -41,6 +45,10 @@ function loadProducts() {
     sendRequest(prodId).then(response => {
         detailsContainer.setAttribute('id', response[0].id);
         image.src = response[0].img;
+        slideImage1.src = response[0].img1;
+        slideImage2.src = response[0].img2;
+        slideImage3.src = response[0].img3;
+        slideImage4.src = response[0].img4;
         title.innerText = response[0]["prod-name"];
         price.innerText = response[0].price;
         desc.innerText = response[0].description;

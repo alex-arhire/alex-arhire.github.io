@@ -41,18 +41,6 @@ document.addEventListener('click', event => {
 cartItems();
 wishlistItems();
 
-/**Set focus**/
-
-/*
-function getFocus() {
-    document.querySelector(".filters").focus();
-    console.log(document.querySelector(".filters"));
-}
-
-setTimeout(function () {
-    getFocus();
-}, 2000);
-*/
 
 /*
 setTimeout(function () {

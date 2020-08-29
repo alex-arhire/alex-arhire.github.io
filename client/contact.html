@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/contact.css"/>
+    <title>Contact page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.contact-header-nav').load('header-nav-footer-Template.html');
+        });
+    </script>
+    <script>
+        $(function () {
+            $('.contact-footer').load('footer-Template.html');
+        });
+    </script>
+</head>
+<body>
+<div class="contact-header-nav"></div>
+<div class="contact-container">
+    <form class="contact-form">
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" value=""/>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" value=""/>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write your message"></textarea>
+        <button>Send Message</button>
+    </form>
+    <div class="contact-info">
+        <h2>Contact Info</h2>
+        <p>If you would like to get in touch then give us a call or send us a message</p>
+        <p>Email: bikestershop@gmail.com</p>
+        <p>Phone: +40 777 7777</p>
+        <p>Address: address placeholder</p>
+        <p>Get our newsletter!</p>
+        <form class="newsletter">
+            <input type="email" name="newsletter" placeholder="Enter email" value=""/>
+            <button>Subscribe</button>
+        </form>
+    </div>
+</div>
+<div class="contact-footer"></div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+/* CSS Variables*/
+:root {
+    --colorOrange: #fc5500;
+    --colorSmoke: #F5F5F5;
+    --greyBlack: #252525;
+    --shadow: 1 px 5px rgba(104, 104, 104, 0.8);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Open Sans Semibold", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.top-menu {
+    grid-area: top-menu;
+    background: url("../imglack and white diamond pattern_204025b2.jpg");
+    /*background-color: rgba(52, 52, 52, 0.76);*/
+    background-size: 100% 100%;
+}
+
+.site-logo {
+    grid-row: 1;
+    grid-column: 1 / 4;
+}
+
+.items {
+    grid-row: 1;
+    grid-column: 4 / 7;
+}
+
+.nav-bar.menu-items-left {
+    grid-row: 2;
+    grid-column: 1 / 5;
+}
+
+.nav-bar.menu-items-right {
+    grid-row: 2;
+    grid-column: 5 / 7;
+}
+
+.site-logo img {
+    float: left;
+    width: 200px;
+    height: 150px;
+}
+
+ul li, a {
+    list-style-type: none;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.top-menu.items {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-content: start;
+    margin-right: 10px;
+    background: black;
+}
+
+.top-menu.items.links a, .nav-bar.menu-items-left a {
+    color: var(--colorSmoke);
+    transition: all 0.3s ease 0s;
+}
+
+.top-menu.items.links a:hover, .nav-bar.menu-items-left a:hover {
+    color: var(--colorOrange);
+}
+
+#user-account, #bikes-menu, #equip-menu, #comp-menu {
+    padding-top: 10px;
+    display: none;
+    position: absolute;
+    opacity: 0;
+}
+
+.top-menu li:hover #user-account, .nav-bar li:hover #bikes-menu, .nav-bar li:hover #equip-menu, .nav-bar li:hover #comp-menu {
+    display: block;
+    opacity: 1;
+}
+
+#user-account li, #bikes-menu li, #equip-menu li, #comp-menu li {
+    padding: 5px 0;
+    background-color: black;
+}
+
+.nav-bar {
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar.menu-items-right {
+    display: inline;
+}
+
+input[type="search"]{
+    background: var(--colorSmoke) url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    border: solid 3px var(--colorSmoke);
+    padding: 10px 10px 10px 29px;
+    margin-right: 40px;
+    width: 25px;
+    border-radius: 30px;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+input[type=search]:focus {
+    width: 250px;
+    background-color: var(--colorSmoke);
+}
+
+.nav-bar.menu-items-right li {
+    padding: 0;
+}
+.nav-bar.menu-items-right li a img {
+    object-fit: contain;
+    width: 15%;
+    height: 15%;
+}
+
+/*.nav-bar.menu-items-right #cart-icon {
+    position: relative;
+    background: url(./../img/CartLogo.PNG) 2px 6px no-repeat;
+    background-size: 50px;
+    right: 20px;
+    bottom: 2px;
+}
+
+.nav-bar.menu-items-right #wishlist-icon {
+    position: relative;
+    background: url(./../img/WishlistLogo.png) 2px 6px no-repeat;
+    background-size: 45px;
+    right: 20px;
+    bottom: 2px;
+}*/
+
+button {
+    color: whitesmoke;
+    background-color: #fc5500;
+    border: none;
+    font-size: 16px;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 10px;
+}

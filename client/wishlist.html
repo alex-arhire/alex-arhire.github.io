@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/wishlist.css"/>
+    <title>Contact page</title>
+    <!--    <script src="./js/getItemsHandler.js" type="text/javascript"></script>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <script>
+        $(function () {
+            $('.wishlist-header-nav').load('header-nav-footer-Template.html');
+        });
+    </script>
+    <script>
+        $(function () {
+            $('.wishlist-footer').load('footer-Template.html');
+        });
+    </script>
+</head>
+<body>
+<div class="wishlist-header-nav"></div>
+<form class="wishlist-container">
+    <h1>My Wishlist</h1>
+    <table class="prod-table">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        <tr class="cart-item">-->
+<!--            <td class="prod-image">-->
+<!--                <a href="#">-->
+<!--                    <img src="./img/Bikes/MY20ReignADPRO290_ColorA.jpg"/>-->
+<!--                </a>-->
+<!--            </td>-->
+<!--            <td class="prod-name">-->
+<!--                <a href="#">Reign AD PRO</a>-->
+<!--            </td>-->
+<!--            <td class="prod-qty">-->
+<!--                <input class="quantity" type="number" name="quantity" value="1"/>-->
+<!--            </td>-->
+<!--            <td class="price">-->
+<!--                <span class="prod-price">$2000</span>-->
+<!--            </td>-->
+<!--            <td class="stock">-->
+<!--                <span>In Stock</span>-->
+<!--            </td>-->
+<!--            <td class="add-cart">-->
+<!--                <button>Add to Cart</button>-->
+<!--            </td>-->
+<!--            <td class="prod-remove">-->
+<!--                <a href="#"></a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr class="cart-item">-->
+<!--            <td class="prod-image">-->
+<!--                <a href="#">-->
+<!--                    <img src="./img/Bikes/MY20Anthem291_ColorA.jpg"/>-->
+<!--                </a>-->
+<!--            </td>-->
+<!--            <td class="prod-name">-->
+<!--                <a href="#">Anthem 29</a>-->
+<!--            </td>-->
+<!--            <td class="prod-qty">-->
+<!--                <input class="quantity" type="number" name="quantity" value="2"/>-->
+<!--            </td>-->
+<!--            <td class="price">-->
+<!--                <span class="prod-price">$2000</span>-->
+<!--            </td>-->
+<!--            <td class="stock">-->
+<!--                <span>In Stock</span>-->
+<!--            </td>-->
+<!--            <td class="add-cart">-->
+<!--                <button>Add to Cart</button>-->
+<!--            </td>-->
+<!--            <td class="prod-remove">-->
+<!--                <a href="#"></a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr class="cart-item">-->
+<!--            <td class="prod-image">-->
+<!--                <a href="#">-->
+<!--                    <img src="./img/Bikes/MY20Trance293_ColorA.jpg"/>-->
+<!--                </a>-->
+<!--            </td>-->
+<!--            <td class="prod-name">-->
+<!--                <a href="#">Trance 29</a>-->
+<!--            </td>-->
+<!--            <td class="prod-qty">-->
+<!--                <input class="quantity" type="number" name="quantity" value="1"/>-->
+<!--            </td>-->
+<!--            <td class="price">-->
+<!--                <span class="prod-price">$2000</span>-->
+<!--            </td>-->
+<!--            <td class="stock">-->
+<!--                <span>In Stock</span>-->
+<!--            </td>-->
+<!--            <td class="add-cart">-->
+<!--                <button>Add to Cart</button>-->
+<!--            </td>-->
+<!--            <td class="prod-remove">-->
+<!--                <a href="#"></a>-->
+<!--            </td>-->
+<!--        </tr>-->
+        </tbody>
+    </table>
+    <span class="total"><strong>Total:</strong>
+    <span class="total-price">$33</span></span>
+    <a href="bikes.html"><button id="to-shop"><< Back to Shop</button></a>
+</form>
+<div class="wishlist-footer"></div>
+<!--<script src="./js/setItemsFromWishlist.js" type="text/javascript"></script>-->
+<!--<script src="./js/getItemsHandler.js" type="text/javascript"></script>-->
+<script src="js/load-products.js" type="module"></script>
+<script src="js/cart.js" type="module"></script>
+</body>
+</html>

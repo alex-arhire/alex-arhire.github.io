@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="css/login.css"/>
+    <!-- Font Awesome   -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <title>Sign In</title>
+</head>
+
+<body>
+
+<div id="login-screen" class="container">
+    <div class="row top">
+        <div id="logo-box" class="column logo">
+            <img src="img/BikeLogo.PNG"/>
+        </div>
+        <div id="quote" class="column quote">
+            <blockquote class="blockquote-reverse">
+                <p><i>"A bad day on a mountain bike always beats a good day in the office."</i></p>
+                <footer>From Sacred Rides founder , Mike Brcic</footer>
+            </blockquote>
+        </div>
+    </div>
+    <div class="row bottom">
+        <div id="login-box" class="column login-box">
+            <div><h2>Sign In</h2></div>
+            <form id="login-form" action="./home.html" method="get">
+                <div id="user-inputs">
+                    <label for="email">Email Address</label>
+                    <input id="email" type="email" name="email" required/>
+                    <label for="password">Password</label>
+                    <i class="fas fa-eye"></i>
+                    <input id="password" type="password" name="password" required>
+                    <input id="remember-me" type="checkbox" name="remember-me"/>
+                    <label for="remember-me" id="remember-label">Remember me</label>
+                    <button id="submit" type="submit">Sign In</button>
+                </div>
+            </form>
+            <div id="new-user-link"><a href="signUp.html">Create a new user account</a></div>
+        </div>
+    </div>
+</div>
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+<script src="js/login.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+@import "bikes.css";
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans Semibold", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul li, a {
+  list-style-type: none;
+  text-decoration: none;
+  padding: 18px;
+  user-select: none;
+}
+
+.products-template .tile a {
+  padding: 0;
+}
+
+/*Mixins*/
+/*Slide-in buttons*/
+/*Product style*/
+.prod-name {
+  color: black;
+}
+
+.prod-price {
+  color: #fc5500;
+}
+
+#to-shop {
+  background-color: black;
+  color: whitesmoke;
+}
+
+/*Common input styles*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.products-template {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+.products-template .prod-name {
+  color: black;
+}
+.products-template .prod-price {
+  color: #fc5500;
+}
+.products-template .tile {
+  display: grid;
+  justify-items: center;
+  position: relative;
+}
+.products-template .tile button:hover {
+  background-color: #fc5500;
+  cursor: pointer;
+}
+.products-template .tile .cart,
+.products-template .tile .wishlist {
+  animation: 0.5s ease;
+  width: 120px;
+  height: 40px;
+  color: white;
+  border: none;
+  background-color: black;
+  opacity: 0;
+  position: absolute;
+  font-size: 14px;
+}
+.products-template .tile .cart:before,
+.products-template .tile .wishlist:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+  filter: blur(30px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.products-template .tile .cart:after,
+.products-template .tile .wishlist:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  width: 30px;
+  height: 100%;
+  left: 30px;
+  top: 0;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100px) skewX(-15deg);
+}
+.products-template .tile .cart:focus,
+.products-template .tile .wishlist:focus {
+  transition: background-color 1s ease;
+  background-color: #00bcd4;
+  cursor: pointer;
+}
+.products-template .tile .cart:focus:before,
+.products-template .tile .wishlist:focus:before {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 0.6;
+  transition: 0.7s;
+}
+.products-template .tile .cart:focus:after,
+.products-template .tile .wishlist:focus:after {
+  transform: translateX(300px) skewX(-15deg);
+  opacity: 1;
+  transition: 0.7s;
+}
+@keyframes slide-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.products-template .tile:hover .cart {
+  animation-name: slide-left;
+  animation-fill-mode: forwards;
+  top: 15%;
+}
+@keyframes slide-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.products-template .tile:hover .wishlist {
+  animation-name: slide-right;
+  animation-fill-mode: forwards;
+  top: 35%;
+}
+@media screen and (max-width: 760px) {
+  .products-template {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: minmax(100px, 50%);
+  }
+}
+
+/*
+.tile {
+    display: grid;
+    justify-items: center;
+    position: relative;
+}
+
+.cart,
+.wishlist {
+    animation: 1s ease;
+    width: 120px;
+    height: 40px;
+    color: white;
+    border: none;
+    background-color: black ;
+    opacity: 0;
+    position: absolute;
+    font-size: 14px;
+}
+
+@keyframes slide-left {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.tile:hover .cart {
+    animation-name: slide-left;
+    animation-fill-mode: forwards;
+    top: 15%;
+}
+
+@keyframes slide-right {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.tile:hover .wishlist {
+    animation-name: slide-right;
+    animation-fill-mode: forwards;
+    top: 35%;
+}
+
+button:hover {
+    background-color: #fc5500;
+}
+*/
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans Semibold", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul li, a {
+  list-style-type: none;
+  text-decoration: none;
+  padding: 18px;
+  user-select: none;
+}
+
+.products-template .tile a {
+  padding: 0;
+}
+
+/*Mixins*/
+/*Slide-in buttons*/
+/*Product style*/
+.prod-name {
+  color: black;
+}
+
+.prod-price {
+  color: #fc5500;
+}
+
+#to-shop {
+  background-color: black;
+  color: whitesmoke;
+}
+
+/*Common input styles*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+img {
+  object-fit: contain;
+  width: 80%;
+  height: 80%;
+  padding-top: 40px;
+}
+
+#cart-icon img, #wishlist-icon img {
+  padding: 0;
+}
+
+.color-filter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.color-filter .colorbox {
+  width: 50px;
+}
+.color-filter .colorbox a {
+  display: flex;
+}
+.color-filter .colorbox #black {
+  background-color: #000000;
+}
+.color-filter .colorbox #blue {
+  background-color: #00CCCC;
+}
+.color-filter .colorbox #red {
+  background-color: red;
+}
+.color-filter .colorbox #green {
+  background-color: green;
+}
+.color-filter .colorbox #yellow {
+  background-color: yellow;
+}
+.color-filter .colorbox #grey {
+  background-color: grey;
+}
+
+/*# sourceMappingURL=equipment.css.map */

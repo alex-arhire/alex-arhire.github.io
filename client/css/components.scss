@@ -1,0 +1,14 @@
+@import "products-Template";
+@import "commonStyle";
+@import "bikes.css";
+
+img {
+  object-fit: contain;
+  width: 80%;
+  height: 80%;
+  padding-top: 20px;
+}
+
+#cart-icon img, #wishlist-icon img {
+  padding: 0;
+}

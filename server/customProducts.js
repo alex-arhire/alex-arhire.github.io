@@ -1,8 +1,8 @@
 const express = require("express");
 const productsRouter = express.Router();
-const prodList = require("./../data/bikesData");
-const equipList = require('./../data/equipmentData');
-const compList = require('./../data/componentsData');
+const prodList = require("./data/bikesData");
+const equipList = require('./data/equipmentData');
+const compList = require('./data/componentsData');
 
 var cart = [];
 var wishlist = [];

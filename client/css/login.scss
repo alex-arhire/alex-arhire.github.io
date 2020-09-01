@@ -1,0 +1,132 @@
+//@import "commonStyle";
+
+body {
+    background-color: rgba(0, 0, 0, 0.33);
+    text-align: center;
+    box-sizing: border-box;
+    font-family: "Open Sans Semibold";
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+#login-screen {
+    background-image: url("../img/robin-wallner,-ålesund,-norway-2016.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 10% 25% 10% 25%;
+    /*width: fit-content;*/
+    /*height: fit-content;*/
+}
+
+.row.top {
+  background-color: white;
+  opacity: 80%;
+  border-bottom: solid #fc5500;
+}
+
+.column {
+  float: left;
+}
+
+.column.logo {
+  width: 25%;
+}
+
+img {
+  width: 150px;
+  height: 120px;
+}
+
+.column.quote {
+  width: 75%;
+  text-align: right;
+}
+
+blockquote footer {
+  text-align: right;
+  font-size: small;
+}
+
+.column.login-box {
+  width: 40%;
+  height: 500px;
+  background-color: #efefef;
+  float: right;
+  opacity: 90%;
+}
+
+h2 {
+  display: block;
+  color: #fc5500;
+  margin-bottom: 30px;
+  padding: 15px;
+}
+
+form input, button {
+  margin: 7px auto;
+}
+
+form label:not(#remember-label), input:not(#remember-me), button {
+  display: block;
+}
+
+input[type="email"], input[type="password"], input[type="text"]{
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.fas.fa-eye {
+  display: inline;
+  position: absolute;
+  color: gray;
+  padding-top: 18px;
+  margin-left: 75px;
+  cursor: pointer;
+}
+
+button {
+  background-color: black;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 200px;
+  height: 37px;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+#new-user-link {
+  margin-top: 20px;
+  margin-bottom: 96px;
+}
+
+label[for="email"]::after, label[for="password"]::after {
+  content: "*";
+  color: #fc5500;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 1050px) {
+   #login-screen, .column.logo, .column.quote, .column.login-box {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}
+

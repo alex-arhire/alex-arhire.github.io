@@ -184,12 +184,14 @@ checkoutBtn.addEventListener('click', function () {
 
 /**Empty cart**/
 function emptyCart() {
-    const cart = new MethodHandler("http://localhost:3000/cart");
-    cart.sendRequest().then(function (response) {
-        if (response.length === 0) {
-            cartContainer.innerHTML = "There are currently no items in your shopping cart.";
-        }
-    })
+    if (window.location.href === 'http://localhost:8080/cartCheckout') {
+        const cart = new MethodHandler("http://localhost:3000/cart");
+        cart.sendRequest().then(function (response) {
+            if (response.length === 0) {
+                cartContainer.innerHTML = "There are currently no items in your shopping cart.";
+            }
+        })
+    }
 }
 
 document.addEventListener('DOMContentLoaded', emptyCart);

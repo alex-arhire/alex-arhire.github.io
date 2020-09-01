@@ -80,6 +80,30 @@ button:focus {
     background-color: black;
 
 }*/
+#shop-text {
+  position: absolute;
+  top: 80%;
+  left: 5%;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 2em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fc5500, #000) no-repeat;
+  background-size: 80%;
+  animation: animate 4s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
 .top-menu.items.links a, .nav-bar.menu-items-left a {
   color: whitesmoke;
   transition: all 0.3s ease 0s;

@@ -10,6 +10,7 @@
 
 button {
   @include buttonStyle($buttonBGBlack, $textColorWS);
+  margin-top: 10px;
 }
 
 .contact-form {
@@ -48,7 +49,4 @@ button {
     /*border-radius: 5px;*/
   }
 
-  button {
-    margin: 0;
-  }
 }
